@@ -27,6 +27,7 @@
     <servlet-name>Accueil</servlet-name>
     <url-pattern>/accueil</url-pattern>
   </servlet-mapping>
+  <description>Servlet Candidatures</description>
   <servlet>
     <servlet-name>Candidatures</servlet-name>
     <servlet-class>com.suivicandidature.servlets.Candidatures</servlet-class>
@@ -35,6 +36,7 @@
     <servlet-name>Candidatures</servlet-name>
     <url-pattern>/candidatures</url-pattern>
   </servlet-mapping>
+  <description>Servlet Modules</description>
   <servlet>
     <servlet-name>Modules</servlet-name>
     <servlet-class>com.suivicandidature.servlets.Modules</servlet-class>
@@ -43,12 +45,22 @@
     <servlet-name>Modules</servlet-name>
     <url-pattern>/modules</url-pattern>
   </servlet-mapping>
-    <servlet>
+  <description>Servlet MonProfil</description>
+  <servlet>
     <servlet-name>MonProfil</servlet-name>
     <servlet-class>com.suivicandidature.servlets.MonProfil</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>MonProfil</servlet-name>
     <url-pattern>/monprofil</url-pattern>
+  </servlet-mapping>
+  <description>Servlet TestBootstrap</description>
+  <servlet>
+    <servlet-name>TestBootstrap</servlet-name>
+    <servlet-class>com.suivicandidature.servlets.TestBootstrap</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>TestBootstrap</servlet-name>
+    <url-pattern>/testbootstrap</url-pattern>
   </servlet-mapping>
 </web-app>

@@ -15,6 +15,7 @@
   			<li><a href="candidatures">Candidatures</a></li>
 			<li><a href="modules">Modules</a></li>
 			<li style="float:right; background-color:#35547e"><a class="active" href="monprofil">Mon profil</a></li>
+			<li><a href="testbootstrap">Test Bootstrap</a></li>
 		</ul>
         <p>Bienvenue sur la JSP "MonProfil" ! :)</p>
     </body>

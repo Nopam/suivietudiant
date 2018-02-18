@@ -14,8 +14,8 @@
   			<li><a class="active" href="accueil">Accueil</a></li>
   			<li><a href="candidatures">Candidatures</a></li>
 			<li><a href="modules">Modules</a></li>
-			<li style="float:right; background-color:#35547e"><a href="monprofil">Mon profil</a></li>
-			<li><a href="testbootstrap">Test Bootstrap</a></li>
+			<li><a href="monprofil">Mon profil</a></li>
+			<li><a style="float:right; background-color:#35547e">href="testbootstrap">Test Bootstrap</a></li>
 		</ul>
         <p>Bienvenue sur la JSP "Accueil" ! :)</p>
         
