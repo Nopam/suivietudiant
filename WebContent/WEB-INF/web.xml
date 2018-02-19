@@ -63,4 +63,13 @@
     <servlet-name>TestBootstrap</servlet-name>
     <url-pattern>/testbootstrap</url-pattern>
   </servlet-mapping>
+  <description>Servlet GestionTestJDBC</description>
+  <servlet>
+	<servlet-name>GestionTestJDBC</servlet-name>
+	<servlet-class>com.sdzee.servlets.GestionTestJDBC</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>GestionTestJDBC</servlet-name>
+	<url-pattern>/testjdbc</url-pattern>
+</servlet-mapping>
 </web-app>
