@@ -31,11 +31,11 @@
         </p>
         <p>
             <label for="dateNaissance">Date de naissance : </label>
-            <input type="text" name="prenom" id="prenom" />
+            <input type="text" name="dateNaissance" id="dateNaissance" />
         </p>
         <p>
             <label for="ville">Ville d'habitation : </label>
-            <input type="text" name="prenom" id="prenom" />
+            <input type="text" name="ville" id="ville" />
         </p>
         
         <input type="submit" />
