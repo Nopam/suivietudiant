@@ -14,6 +14,10 @@ public class Personne {
 		this.setVilleHabitation(villeHabitation);
 	}
 
+	public Personne() {
+		
+	}
+	
 	public String getNom() {
 		return nom;
 	}
