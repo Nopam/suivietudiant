@@ -22,10 +22,13 @@ import com.suivicandidature.beans.Personne;
 
 public class TestBootstrap extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
 
 	public void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException{
 			PersonnesBDD tablePersonne = new PersonnesBDD();
 			request.setAttribute("personnes", tablePersonne.recupererPersonne());
+			
+			
 			this.getServletContext().getRequestDispatcher( "/WEB-INF/vues/testBootstrap.jsp" ).forward( request, response );
 		}
 	
@@ -39,6 +42,9 @@ public class TestBootstrap extends HttpServlet {
 		PersonnesBDD tablePersonne = new PersonnesBDD();
 		tablePersonne.ajouterPersonne(personne);
 		request.setAttribute("personnes", tablePersonne.recupererPersonne());
+		
+    	String choixPersonne = request.getParameter("choixPersonne");
+    	request.setAttribute("choixPersonne", choixPersonne);
 		
 		this.getServletContext().getRequestDispatcher( "/WEB-INF/vues/testBootstrap.jsp" ).forward( request, response );
 		

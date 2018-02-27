@@ -41,7 +41,7 @@
         <input type="submit" />
     </form>
     
-    <ul>
+<%--     <ul>
         <c:forEach var="personne" items="${ personnes }">
             <li>
             	Prenom : <c:out value="${ personne.prenom }" /><br/> 
@@ -50,6 +50,21 @@
             	Ville d'habitation : <c:out value="${ personne.villeHabitation }" /><br/>
             </li>
         </c:forEach>
-    </ul>    
+    </ul>   --%>  
+    
+    <form method="post" action="testbootstrap">
+    
+	    <label for="choixPersonne">Cherchez une personne :</label>
+		<input list="Personnes" type="text" id="choixPersonne" name="choixPersonne">
+		<datalist id="Personnes">
+			<c:forEach var="personne" items="${ personnes }">
+				<option value="<c:out value="${ personne.prenom }"/>">
+			</c:forEach>
+		</datalist>
+		<input type="submit" />
+    </form>
+    
+    <p>${ choixPersonne }</p>
+
     </body>
 </html>
