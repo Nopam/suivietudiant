@@ -1,4 +1,5 @@
 package com.suivicandidature.beans;
+import java.lang.*;
 
 public class Personne {
 	
@@ -23,7 +24,7 @@ public class Personne {
 	}
 
 	public void setNom(String nom) {
-		this.nom = nom;
+			this.nom = nom;
 	}
 
 	public String getPrenom() {

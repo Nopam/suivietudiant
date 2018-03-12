@@ -42,38 +42,38 @@ public class PersonnesBDD {
 				personne.setVilleHabitation(ville);
 				
 				personnes.add(personne);
-		}
-} catch (SQLException e) {
-} finally {
-	//Fermeture de la connexion
-	try {
-		if (resultat != null)
-			resultat.close();
-		if (statement != null)
-			statement.close();
-		if (connexion != null)
-			connexion.close();
-		} catch (SQLException ignore) {
-			
-		}
-}
-		return personnes;
-}
-
-private void loadDatabase() {
-	//Chargement du driver
-	
-	try {
-		Class.forName("com.mysql.jdbc.Driver");
-	} catch (ClassNotFoundException e) {
+			}
+		} catch (SQLException e) {
+		} finally {
+				//Fermeture de la connexion
+				try {
+					if (resultat != null)
+						resultat.close();
+					if (statement != null)
+						statement.close();
+					if (connexion != null)
+						connexion.close();
+					} catch (SQLException ignore) {
+						
+					}
+			}
+			return personnes;
 	}
 	
-	try {
-		connexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/suivicandidature", "root", "");
-	} catch (SQLException e) {
-			e.printStackTrace();
+	private void loadDatabase() {
+		//Chargement du driver
+		
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+		} catch (ClassNotFoundException e) {
 		}
-}
+		
+		try {
+			connexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/suivicandidature", "root", "");
+		} catch (SQLException e) {
+				e.printStackTrace();
+			}
+	}
 
 public void ajouterPersonne(Personne personne ) {
 	loadDatabase();

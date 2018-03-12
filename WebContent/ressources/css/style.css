@@ -2,12 +2,15 @@ body {
 	background-color: #F5F5DC;
 }
 
-p {
+/* ------------------------------------------ MENU ------------------------------------------ */
+
+
+div#menu p {
 	font-size: 30;
 	color: red;
 }
 
-ul {
+div#menu ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -15,11 +18,11 @@ ul {
     background-color: #333;
 }
 
-li {
+div#menu li {
     float: left;
 }
 
-li a {
+div#menu li a {
     display: block;
     color: white;
     text-align: center;
@@ -27,11 +30,20 @@ li a {
     text-decoration: none;
 }
 
-li a:hover {
+div#menu ul li.onRight{
+	float:	right; 
+	background-color:	#35547e;
+}
+
+div#menu li a:hover {
     background-color: #446ba2;
     opacity:0.66;
 }
 
-.active {
+div#menu .active {
     background-color: #446ba2;
 }
+
+
+
+
