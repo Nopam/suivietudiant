@@ -1,4 +1,4 @@
-package com.suivicandidature.classe;
+package com.suivicandidature.classes;
 
 public class Module {
 	private String nomModule;

@@ -1,4 +1,4 @@
-package com.suivicandidature.classe;
+package com.suivicandidature.classes;
 
 import java.io.File;
 import java.io.FileNotFoundException;
