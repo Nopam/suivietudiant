@@ -45,5 +45,65 @@ div#menu .active {
 }
 
 
+/*------------------------- Style des inputs  ------------------------------*/
+
+#inputPrenom {
+	background-image: url("ressources/img/search-icon.png");
+	background-position: 10px 10px;
+	background-repeat: no-repeat;
+	width: 20%;
+	font-size: 16px;
+	padding: 12px 20px 12px 20px;
+	border: 1px solid #ddd;
+	margin-bottom: 12px;
+}
+
+#inputNom {
+	background-image: url('ressources/img/search-icon.png');
+	background-position: 10px 10px;
+	background-repeat: no-repeat;
+	width: 20%;;
+	font-size: 16px;
+	padding: 12px 20px 12px 20px;
+	border: 1px solid #ddd;
+	margin-bottom: 12px;
+}
 
 
+
+
+/*------------------------- Style des inputs  ------------------------------*/
+
+
+#tableEtudiants {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#tableEtudiants td, #tableEtudiants th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+td {
+	cursor: pointer;
+}
+
+#tableEtudiants tr:nth-child(even){background-color: #D1D2D5;}
+#tableEtudiants tr:nth-child(odd){background-color: #E9EBFC;}
+
+#tableEtudiants tr:hover {background-color: #ddd;}
+
+#tableEtudiants th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #35547e;
+    color: white;
+}
+
+#link {
+	width : 15px;
+	height : 15px;
+}

@@ -8,6 +8,7 @@
         <meta charset="utf-8" />
         <title>Accueil</title>
         <link rel="stylesheet" href="ressources/css/style.css" />
+        <script type="text/javascript" src="ressources/js/ajaxInputOnTable.js"></script>
     </head>
 
     <body>
@@ -22,40 +23,33 @@
 		</div>
         <p>Bienvenue sur la JSP "Accueil" ! :)</p>
              
-           <form method="post" action="accueil">
-        <p>
-            <label for="nom">Nom : </label>
-            <input type="text" name="nom" id="nom" />
-        </p>
-        <p>
-            <label for="prenom">Prénom : </label>
-            <input type="text" name="prenom" id="prenom" />
-        </p>
-        <p>
-            <label for="dateNaissance">Date de naissance : </label>
-            <input type="text" name="dateNaissance" id="dateNaissance" />
-        </p>
-        <p>
-            <label for="villeAdresse">Ville d'habitation : </label>
-            <input type="text" name="villeAdresse" id="villeAdresse" />
-        </p>
-        
-        <input type="submit" />
-    </form>
-        
-            <form method="post" action="accueil">
+
+<input type="text" id="inputPrenom" onkeyup="inputFilterPrenom()" placeholder="Prénom" title="Tapez un prénom">
+<input type="text" id="inputNom" onkeyup="inputFilterNom()" placeholder="Nom" title="Tapez un nom">
+
+
+
+<table id="tableEtudiants">
+			<tr>
+				<th>Prenom</th>
+				<th>Nom</th>
+				<th>Statut</th>
+				<th>Date de Naissance</th>
+				<th>Ville</th>	
+			</tr>
+        <c:forEach var="candidat" items="${ candidats }">
+            <tr onclick="document.location='testbootstrap?id=${ candidat.idEtudiant }'">
+            	<td><c:out value="${ candidat.prenom }" /></td>
+            	<td><c:out value="${ candidat.nom }" /> </td>            	
+            	<td><c:out value="${ candidat.statut }"/> </td>
+            	<td><c:out value="${ candidat.dateNaissance }" /> </td>
+            	<td><c:out value="${ candidat.villeAdresse }" /> </td>
+            </tr>
+        </c:forEach>
+</table>
     
-	    <label for="choixCandidat">Cherchez un candidat :</label>
-		<input list="Candidats" type="text" id="choixCandidat" name="choixCandidat">
-		<datalist id="Candidats">
-			<c:forEach var="candidat" items="${ candidats }">
-				<option value="<c:out value="${ candidat.prenom }"/>">
-			</c:forEach>
-		</datalist>
-		<input type="submit" />
-    </form>
     
-    <p>${ choixCandidat }</p>
+
     
     </body>
 </html>

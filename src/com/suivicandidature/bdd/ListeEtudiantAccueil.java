@@ -26,20 +26,24 @@ public class ListeEtudiantAccueil {
 			statement = connexion.createStatement();
 			
 			//Execution de la requête
-			resultat = statement.executeQuery("SELECT nomEtudiant, prenomEtudiant, dateNaissanceEtudiant, villeAdresseEtudiant FROM etudiants;");
+			resultat = statement.executeQuery("SELECT idEtudiant, nomEtudiant, prenomEtudiant, dateNaissanceEtudiant, villeAdresseEtudiant, statutEtudiant FROM etudiants;");
 			
 			//Récupération des données
 			while (resultat.next()) {
-				String nom = resultat.getString("nom");
-				String prenom = resultat.getString("prenom");
-				String dateNaissance = resultat.getString("dateNaissance");
-				String villeAdresse = resultat.getString("villeAdresse");
+				int idEtudiant = resultat.getInt("idEtudiant");
+				String nom = resultat.getString("nomEtudiant");
+				String prenom = resultat.getString("prenomEtudiant");
+				String dateNaissance = resultat.getString("dateNaissanceEtudiant");
+				String villeAdresse = resultat.getString("villeAdresseEtudiant");
+				String statut = resultat.getString("statutEtudiant");
 				
 				Candidat candidat = new Candidat();
 				candidat.setNom(nom);
 				candidat.setPrenom(prenom);
 				candidat.setDateNaissance(dateNaissance);
 				candidat.setVilleAdresse(villeAdresse);
+				candidat.setStatut(statut);
+				candidat.setIdEtudiant(idEtudiant);
 				
 				candidats.add(candidat);
 			}
@@ -75,19 +79,22 @@ public class ListeEtudiantAccueil {
 			}
 	}
 
-public void ajouterCandidat(Candidat candidat ) {
-	loadDatabase();
-	try {
-		PreparedStatement preparedStatement = connexion.prepareStatement("INSERT INTO etudiants(nomEtudiant, prenomEtudiant, dateNaissanceEtudiant, villeAdresseEtudiant) VALUES(?, ?, ?, ?);");
-		preparedStatement.setString(1, candidat.getNom());
-		preparedStatement.setString(2, candidat.getPrenom());
-		preparedStatement.setString(3, candidat.getDateNaissance());
-		preparedStatement.setString(4, candidat.getVilleAdresse());
-
-		preparedStatement.executeUpdate();
-	} catch (SQLException e) {
-		e.printStackTrace();
-	}
-}
+// Code permettant d'insérer des candidats dans la BDD	
+	
+//public void ajouterCandidat(Candidat candidat ) {
+//	loadDatabase();
+//	try {
+//		PreparedStatement preparedStatement = connexion.prepareStatement("INSERT INTO etudiants(nomEtudiant, prenomEtudiant, dateNaissanceEtudiant, villeAdresseEtudiant) VALUES(?, ?, ?, ?);");
+//		preparedStatement.setString(1, candidat.getNom());
+//		preparedStatement.setString(2, candidat.getPrenom());
+//		preparedStatement.setString(3, candidat.getDateNaissance());
+//		preparedStatement.setString(4, candidat.getVilleAdresse());
+//
+//		preparedStatement.executeUpdate();
+//	} catch (SQLException e) {
+//		e.printStackTrace();
+//	}
+//}
+	
 }
 	
