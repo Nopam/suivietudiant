@@ -93,7 +93,7 @@ td {
 #tableEtudiants tr:nth-child(even){background-color: #D1D2D5;}
 #tableEtudiants tr:nth-child(odd){background-color: #E9EBFC;}
 
-#tableEtudiants tr:hover {background-color: #ddd;}
+#tableEtudiants tr:hover {background-color: #ADB8F6;}
 
 #tableEtudiants th {
     padding-top: 12px;
