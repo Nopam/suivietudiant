@@ -36,14 +36,14 @@
     <servlet-name>Candidatures</servlet-name>
     <url-pattern>/candidatures</url-pattern>
   </servlet-mapping>
-  <description>Servlet Modules</description>
+  <description>Fiche Etudiant</description>
   <servlet>
-    <servlet-name>Modules</servlet-name>
-    <servlet-class>com.suivicandidature.servlets.Modules</servlet-class>
+    <servlet-name>FicheEtudiant</servlet-name>
+    <servlet-class>com.suivicandidature.servlets.FicheEtudiant</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>Modules</servlet-name>
-    <url-pattern>/modules</url-pattern>
+    <servlet-name>FicheEtudiant</servlet-name>
+    <url-pattern>/ficheEtudiant</url-pattern>
   </servlet-mapping>
   <description>Servlet MonProfil</description>
   <servlet>
