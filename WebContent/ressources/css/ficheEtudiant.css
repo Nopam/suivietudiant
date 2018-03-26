@@ -1,0 +1,108 @@
+@charset "ISO-8859-1";
+
+body {
+	background-color: #F5F5DC;
+}
+
+/* ------------------------------------------ MENU ------------------------------------------ */
+
+
+div#menu p {
+	font-size: 30;
+	color: red;
+}
+
+div#menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+div#menu li {
+    float: left;
+}
+
+div#menu li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+div#menu ul li.onRight{
+	float: right; 
+	background-color: #35547e;
+}
+
+div#menu li a:hover {
+    background-color: #446ba2;
+    opacity:0.66;
+}
+
+div#menu .active {
+    background-color: #446ba2;
+}
+
+/* -------------- BODY ----------------- */
+
+div#central {
+	margin: 1em;
+	width: 100%;
+	display:inline-block;
+}
+
+div#central div#piecesJointes{
+	margin-right: 0px;
+	max-height: 100%;
+	min-width: 30%;
+	max-width:35%;
+	height: 100%;
+	display: inline-table;
+}
+
+div#central div#ficheEtudiant{
+	-webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+	box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+	padding: 10px;
+	margin-left: 0px;
+	font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+	font-size: 20px;
+	min-width: 60%;
+	max-width: 65%;
+	max-height: 100%;
+	display: inline-table;
+	background-color: green;
+}
+
+div#central div#ficheEtudiant input,select{
+	border-radius: 10px;
+	padding: 5px;
+	margin-bottom: 1em;
+}
+
+div#central div#ficheEtudiant .button{
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+
+div#central div#ficheEtudiant .button:hover {background-color: #3e8e41}
+
+div#central div#ficheEtudiant .button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
