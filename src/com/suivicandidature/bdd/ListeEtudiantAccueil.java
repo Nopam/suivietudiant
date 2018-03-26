@@ -8,6 +8,7 @@ import java.sql.Statement;
 import java.sql.PreparedStatement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Date;
 
 import com.suivicandidature.beans.Candidat;
 
@@ -26,7 +27,7 @@ public class ListeEtudiantAccueil {
 			statement = connexion.createStatement();
 			
 			//Execution de la requête
-			resultat = statement.executeQuery("SELECT idEtudiant, nomEtudiant, prenomEtudiant, dateNaissanceEtudiant, villeAdresseEtudiant, statutEtudiant FROM etudiants;");
+			resultat = statement.executeQuery("SELECT idEtudiant, nomEtudiant, prenomEtudiant, dateNaissanceEtudiant, villeAdresseEtudiant, statutEtudiant, dateRDVEntretienEtudiant FROM etudiants;");
 			
 			//Récupération des données
 			while (resultat.next()) {
@@ -36,6 +37,7 @@ public class ListeEtudiantAccueil {
 				String dateNaissance = resultat.getString("dateNaissanceEtudiant");
 				String villeAdresse = resultat.getString("villeAdresseEtudiant");
 				String statut = resultat.getString("statutEtudiant");
+				//Date dateRDVEntretien = resultat.getDate("dateRDVEntretienEtudiant");
 				
 				Candidat candidat = new Candidat();
 				candidat.setNom(nom);
@@ -44,6 +46,7 @@ public class ListeEtudiantAccueil {
 				candidat.setVilleAdresse(villeAdresse);
 				candidat.setStatut(statut);
 				candidat.setIdEtudiant(idEtudiant);
+				//candidat.setDateRDVEntretien(dateRDVEntretien);
 				
 				candidats.add(candidat);
 			}

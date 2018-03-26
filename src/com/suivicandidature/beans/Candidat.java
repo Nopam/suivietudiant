@@ -1,13 +1,15 @@
 package com.suivicandidature.beans;
 
+import java.util.Date;
+
 public class Candidat {
 	
 	private int idEtudiant,	idProfReferent, numAdresse;
-	private String nom, prenom, dateNaissance, mail, tel, rueAdresse, compAdresse, cpAdresse, villeAdresse, statut, dateRDVEntretien, dateCreation, dateMaj;
-	
+	private String nom, prenom, dateNaissance, mail, tel, rueAdresse, compAdresse, cpAdresse, villeAdresse, statut;
+	private Date dateRDVEntretien, dateCreation, dateMaj;
 	public Candidat(int idEtudiant, int idProfReferent, String nom, String prenom, String dateNaissance, String mail,
 			String tel, int numAdresse, String rueAdresse, String compAdresse, String cpAdresse, String villeAdresse, String statut,
-			String dateRDVEntretien, String dateCreation, String dateMaj) {
+			Date dateRDVEntretien, Date dateCreation, Date dateMaj) {
 		super();
 		this.idEtudiant = idEtudiant;
 		this.idProfReferent = idProfReferent;
@@ -136,27 +138,27 @@ public class Candidat {
 		this.statut = statut;
 	}
 
-	public String getDateRDVEntretien() {
+	public Date getDateRDVEntretien() {
 		return dateRDVEntretien;
 	}
 
-	public void setDateRDVEntretien(String dateRDVEntretien) {
+	public void setDateRDVEntretien(Date dateRDVEntretien) {
 		this.dateRDVEntretien = dateRDVEntretien;
 	}
 
-	public String getDateCreation() {
+	public Date getDateCreation() {
 		return dateCreation;
 	}
 
-	public void setDateCreation(String dateCreation) {
+	public void setDateCreation(Date dateCreation) {
 		this.dateCreation = dateCreation;
 	}
 
-	public String getDateMaj() {
+	public Date getDateMaj() {
 		return dateMaj;
 	}
 
-	public void setDateMaj(String dateMaj) {
+	public void setDateMaj(Date dateMaj) {
 		this.dateMaj = dateMaj;
 	}
 

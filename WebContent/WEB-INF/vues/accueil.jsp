@@ -35,7 +35,7 @@
 				<th>Nom</th>
 				<th>Statut</th>
 				<th>Date de Naissance</th>
-				<th>Ville</th>	
+				<th>Ville</th>
 			</tr>
         <c:forEach var="candidat" items="${ candidats }">
             <tr onclick="document.location='testbootstrap?id=${ candidat.idEtudiant }'">
