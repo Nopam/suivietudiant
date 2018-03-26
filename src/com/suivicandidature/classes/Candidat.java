@@ -15,7 +15,7 @@ public class Candidat extends Personne {
 	//Voir si c'est essentiel lors de la creation du candidat de renseigner son age
 	public Candidat(String nom, String prenom, int age, String adresseMail, File cvCandidat){
 		super(nom,prenom,adresseMail);
-		this.age = age;
+		this.age = age; 
 		this.cvCandidat = cvCandidat;		
 	}
 	
