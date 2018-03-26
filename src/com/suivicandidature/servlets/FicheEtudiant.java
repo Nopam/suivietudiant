@@ -18,19 +18,28 @@ public class FicheEtudiant extends HttpServlet {
 
 	}
 	
-	protected void doPost(HttpServletRequest request,  HttpServletResponse response) 
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 			 throws ServletException, IOException { 
 		this.getServletContext().getRequestDispatcher( "/WEB-INF/vues/ficheEtudiant.jsp" ).forward( request, response );
 
 			
 			 String nom = request.getParameter("name");
 			 String prenom = request.getParameter("surname");
-			 int dateNaiss = 3;
+			 String dateNaissance = "3";
 			 String mail = request.getParameter("mail");
 			 String tel = request.getParameter("tel");
 			 String statut = request.getParameter("statut");
 			 
-			 Candidat e1 = new Candidat(nom,prenom,dateNaiss,mail,null);
+			 Candidat e1 = new Candidat();
+			 e1.setNom(nom);
+			 e1.setPrenom(prenom);
+			 e1.setDateNaissance(dateNaissance);
+			 e1.setMail(mail);
+			 e1.setTel(tel);
+			 e1.setStatut(statut);
+			 
+			 
+			 
 			 System.out.println(e1);;
 			 
 			 

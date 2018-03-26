@@ -9,6 +9,9 @@ public class Candidat {
 	private Date dateRDVEntretien, dateCreation, dateMaj;
 	
 	//Constructeur par défaut
+	public Candidat(){
+		
+	};
 	
 	public Candidat(int idEtudiant, int idProfReferent, String nom, String prenom, String dateNaissance, String mail,
 			String tel, int numAdresse, String rueAdresse, String compAdresse, String cpAdresse, String villeAdresse, String statut,
@@ -31,10 +34,6 @@ public class Candidat {
 		this.dateCreation = dateCreation;
 		this.dateMaj = dateMaj;
 	}
-
-	public Candidat(){
-		
-	};
 	
 	
 	public int getIdEtudiant() {

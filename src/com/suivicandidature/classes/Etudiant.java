@@ -8,7 +8,7 @@ public class Etudiant extends Candidat {
 	public static int nombre_etudiant = 0;
 	
 	public Etudiant(String nom, String prenom, int age, String adresseMail, File cvCandidat, int anneeAdmission) {
-		super(nom,prenom,age,adresseMail,cvCandidat);
+	//	super(nom,prenom,age,adresseMail,cvCandidat);
 		this.anneeAdmission = anneeAdmission;
 		System.out.println("Un nouvel étudiant vient d'être admis");
 		Etudiant.nombre_etudiant++;
