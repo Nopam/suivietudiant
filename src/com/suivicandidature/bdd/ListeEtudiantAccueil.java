@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Date;
 
-import com.suivicandidature.beans.Candidat;
+import com.suivicandidature.classes.Candidat;
 
 public class ListeEtudiantAccueil {
 
