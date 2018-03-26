@@ -30,7 +30,7 @@ public class FicheEtudiant extends HttpServlet {
 			 String tel = request.getParameter("tel");
 			 String statut = request.getParameter("statut");
 			 
-			 Candidat_SAV e1 = new Candidat_SAV(nom,prenom,dateNaiss,mail,null);
+			 Candidat e1 = new Candidat(nom,prenom,dateNaiss,mail,null);
 			 System.out.println(e1);;
 			 
 			 

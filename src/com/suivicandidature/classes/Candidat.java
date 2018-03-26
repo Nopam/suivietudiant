@@ -7,6 +7,9 @@ public class Candidat {
 	private int idEtudiant,	idProfReferent, numAdresse;
 	private String nom, prenom, dateNaissance, mail, tel, rueAdresse, compAdresse, cpAdresse, villeAdresse, statut;
 	private Date dateRDVEntretien, dateCreation, dateMaj;
+	
+	//Constructeur par défaut
+	
 	public Candidat(int idEtudiant, int idProfReferent, String nom, String prenom, String dateNaissance, String mail,
 			String tel, int numAdresse, String rueAdresse, String compAdresse, String cpAdresse, String villeAdresse, String statut,
 			Date dateRDVEntretien, Date dateCreation, Date dateMaj) {
