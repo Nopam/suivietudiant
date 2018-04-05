@@ -26,7 +26,7 @@
 
 <input type="text" id="inputPrenom" onkeyup="inputFilterPrenom()" placeholder="Prénom" title="Tapez un prénom">
 <input type="text" id="inputNom" onkeyup="inputFilterNom()" placeholder="Nom" title="Tapez un nom">
-
+<input type="text" id="inputSearch" onkeyup="inputFilterSearch()" placeholder="search" title="Cherchez un étudiant">
 
 
 <table id="tableEtudiants">
@@ -38,7 +38,8 @@
 				<th>Ville</th>
 			</tr>
         <c:forEach var="candidat" items="${ candidats }">
-            <tr onclick="document.location='testbootstrap?id=${ candidat.idEtudiant }'">
+            <tr onclick="document.location='testbootstrap?id=${ candidat.idEtudiant }'"> <!-- Lien vers la fiche étudiant -->
+            	<td style=hidden><c:out value="${ candidat.prenom } ${ candidat.nom }"/></td>
             	<td><c:out value="${ candidat.prenom }" /></td>
             	<td><c:out value="${ candidat.nom }" /> </td>            	
             	<td><c:out value="${ candidat.statut }"/> </td>
