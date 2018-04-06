@@ -16,8 +16,9 @@ public class ListeEtudiantAccueil {
 
 	private Connection connexion;
 	
-	public List<Candidat> recupererCandidat() {
+	public List<Candidat> recupererCandidat(String mode) {
 		List<Candidat> candidats = new ArrayList<Candidat>();
+		String query = null;
 		Statement statement = null;
 		ResultSet resultat = null;
 		
@@ -26,8 +27,17 @@ public class ListeEtudiantAccueil {
 		try {
 			statement = connexion.createStatement();
 			
+			switch(mode) {
+			case "id" : query = "SELECT all FROM etudiants where idEtudiant = id;";
+				break;
+			case "accueil" : query = "SELECT idEtudiant, nomEtudiant, prenomEtudiant, dateNaissanceEtudiant, villeAdresseEtudiant, statutEtudiant, dateRDVEntretienEtudiant FROM etudiants;";
+				break;
+			default: query = "SELECT all FROM etudiants";
+				break;
+			}
+			
 			//Execution de la requête
-			resultat = statement.executeQuery("SELECT idEtudiant, nomEtudiant, prenomEtudiant, dateNaissanceEtudiant, villeAdresseEtudiant, statutEtudiant, dateRDVEntretienEtudiant FROM etudiants;");
+			resultat = statement.executeQuery(query);
 			
 			//Récupération des données
 			while (resultat.next()) {

@@ -16,8 +16,9 @@ public class CandidatBDD {
 	
 	private Connection connexion;
 	
-	public List<Personne> recupererPersonne() {
+	public List<Personne> recupererPersonne(String mode) {
 		List<Personne> personnes = new ArrayList<Personne>();
+		String query = null;
 		Statement statement = null;
 		ResultSet resultat = null;
 		
@@ -26,8 +27,17 @@ public class CandidatBDD {
 		try {
 			statement = connexion.createStatement();
 			
+			switch(mode) {
+				case "id" : query = "SELECT all FROM personnes WHERE id=id";
+					break;
+				case "accueil" : query = "SELECT nom, prenom, semestre FROM personnes";
+					break;
+				default: query = "SELECT all FROM personnes";
+					break;
+			
+			}
 			//Execution de la requête
-			resultat = statement.executeQuery("SELECT nom, prenom, dateNaissance, ville FROM personnes;");
+			resultat = statement.executeQuery(query);
 			
 			//Récupération des données
 			while (resultat.next()) {

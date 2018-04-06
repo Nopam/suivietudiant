@@ -49,10 +49,10 @@
 					
 				<label for="studentStatut">Statut: </label>
 					<select id="studentStatut">
-					  <option value="toCheck">A consulter</option> 
-					  <option value="refused" selected>Refusé</option>
-					  <option value="accepted" selected>Accepté</option>
-					  <option value="inProgress">En cours</option>
+					  <option value="rdvPlanified">Rendez-vous planifié</option> 
+					  <option value="refused">Refusé</option>
+					  <option value="accepted">Accepté</option>
+					  <option value="inProgress" selected>Non traité</option>
 					</select><br />
 					
 					<input  type="submit" value="Valider" class="inputInfos button" onclick="validate()">
