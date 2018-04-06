@@ -15,38 +15,39 @@ import com.suivicandidature.classes.Candidat;
 public class CandidatBDD {
 
 	private Connection connexion;
-	
-	public List<Candidat> recupererCandidat() {
-		List<Candidat> candidats = new ArrayList<Candidat>();
-		Statement statement = null;
-		ResultSet resultat = null;
-		
-		loadDatabase();
-		
-		try {
-			statement = connexion.createStatement();
-			
-			//Execution de la requête
-			resultat = statement.executeQuery("SELECT idEtudiant, nomEtudiant, prenomEtudiant, dateNaissanceEtudiant, villeAdresseEtudiant, statutEtudiant, dateRDVEntretienEtudiant FROM etudiants;");
-			
-			//Récupération des données
-			while (resultat.next()) {
-				int idEtudiant = resultat.getInt("idEtudiant");
-				String nom = resultat.getString("nomEtudiant");
-				String prenom = resultat.getString("prenomEtudiant");
-				String dateNaissance = resultat.getString("dateNaissanceEtudiant");
-				String villeAdresse = resultat.getString("villeAdresseEtudiant");
-				String statut = resultat.getString("statutEtudiant");
-				//Date dateRDVEntretien = resultat.getDate("dateRDVEntretienEtudiant");
-				
-				Candidat candidat = new Candidat();
-				candidat.setNom(nom);
-				candidat.setPrenom(prenom);
-				candidat.setDateNaissance(dateNaissance);
-				candidat.setVilleAdresse(villeAdresse);
-				candidat.setStatut(statut);
-				candidat.setIdEtudiant(idEtudiant);
-				//candidat.setDateRDVEntretien(dateRDVEntretien);
+
+    // urlData1 est facultatif, si vous n'avez aucune info a récupérer mettre la valeur à null
+    public List<Candidat> recupererCandidat(String page, int urlData1) {
+        List<Candidat> candidats = new ArrayList<Candidat>();
+        Statement statement = null;
+        String query;
+        ResultSet resultat = null;
+
+        loadDatabase();
+
+        try {
+            switch (page) {
+            case "accueil" : query = "SELECT idEtudiant, nomEtudiant, prenomEtudiant, dateNaissanceEtudiant, villeAdresseEtudiant, statutEtudiant, dateRDVEntretienEtudiant FROM etudiants;";
+                statement = connexion.createStatement();
+                resultat = statement.executeQuery(query);
+                break;
+            case "ficheEtudiant" : query = "SELECT idEtudiant, nomEtudiant, prenomEtudiant, dateNaissanceEtudiant, villeAdresseEtudiant, statutEtudiant, dateRDVEntretienEtudiant FROM etudiants;";
+                PreparedStatement preparedStatement = connexion.prepareStatement("SELECT idEtudiant, nomEtudiant, prenomEtudiant, dateNaissanceEtudiant, villeAdresseEtudiant, statutEtudiant, dateRDVEntretienEtudiant FROM etudiants WHERE id := ?;");
+                preparedStatement.setInt(1, urlData1);
+                preparedStatement.executeUpdate();
+                break;
+            }
+
+
+            //Récupération des données
+            while (resultat.next()) {
+                int idEtudiant = resultat.getInt("idEtudiant");
+                String nom = resultat.getString("nomEtudiant");
+                String prenom = resultat.getString("prenomEtudiant");
+                String dateNaissance = resultat.getString("dateNaissanceEtudiant");
+                String villeAdresse = resultat.getString("villeAdresseEtudiant");
+                String statut = resultat.getString("statutEtudiant");
+                //Date dateRDVEntretien = resultat.getDate("dateRDVEntretienEtudiant");
 				
 				candidats.add(candidat);
 			}
