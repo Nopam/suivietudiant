@@ -2,22 +2,22 @@ package com.suivicandidature.bdd;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.PreparedStatement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Date;
 
-import com.suivicandidature.beans.Personne;
+import com.suivicandidature.classes.Candidat;
 
 public class CandidatBDD {
 
-	
 	private Connection connexion;
 	
-	public List<Personne> recupererPersonne() {
-		List<Personne> personnes = new ArrayList<Personne>();
+	public List<Candidat> recupererCandidat() {
+		List<Candidat> candidats = new ArrayList<Candidat>();
 		Statement statement = null;
 		ResultSet resultat = null;
 		
@@ -27,22 +27,28 @@ public class CandidatBDD {
 			statement = connexion.createStatement();
 			
 			//Execution de la requête
-			resultat = statement.executeQuery("SELECT nom, prenom, dateNaissance, ville FROM personnes;");
+			resultat = statement.executeQuery("SELECT idEtudiant, nomEtudiant, prenomEtudiant, dateNaissanceEtudiant, villeAdresseEtudiant, statutEtudiant, dateRDVEntretienEtudiant FROM etudiants;");
 			
 			//Récupération des données
 			while (resultat.next()) {
-				String nom = resultat.getString("nom");
-				String prenom = resultat.getString("prenom");
-				String dateNaissance = resultat.getString("dateNaissance");
-				String ville = resultat.getString("ville");
+				int idEtudiant = resultat.getInt("idEtudiant");
+				String nom = resultat.getString("nomEtudiant");
+				String prenom = resultat.getString("prenomEtudiant");
+				String dateNaissance = resultat.getString("dateNaissanceEtudiant");
+				String villeAdresse = resultat.getString("villeAdresseEtudiant");
+				String statut = resultat.getString("statutEtudiant");
+				//Date dateRDVEntretien = resultat.getDate("dateRDVEntretienEtudiant");
 				
-				Personne personne = new Personne();
-				personne.setNom(nom);
-				personne.setPrenom(prenom);
-				personne.setDateNaissance(dateNaissance);
-				personne.setVilleHabitation(ville);
+				Candidat candidat = new Candidat();
+				candidat.setNom(nom);
+				candidat.setPrenom(prenom);
+				candidat.setDateNaissance(dateNaissance);
+				candidat.setVilleAdresse(villeAdresse);
+				candidat.setStatut(statut);
+				candidat.setIdEtudiant(idEtudiant);
+				//candidat.setDateRDVEntretien(dateRDVEntretien);
 				
-				personnes.add(personne);
+				candidats.add(candidat);
 			}
 		} catch (SQLException e) {
 		} finally {
@@ -58,7 +64,7 @@ public class CandidatBDD {
 						
 					}
 			}
-			return personnes;
+			return candidats;
 	}
 	
 	private void loadDatabase() {
@@ -76,18 +82,22 @@ public class CandidatBDD {
 			}
 	}
 
-public void ajouterPersonne(Personne personne ) {
-	loadDatabase();
-	try {
-		PreparedStatement preparedStatement = connexion.prepareStatement("INSERT INTO personnes(nom, prenom, dateNaissance, ville) VALUES(?, ?, ?, ?);");
-		preparedStatement.setString(1, personne.getNom());
-		preparedStatement.setString(2, personne.getPrenom());
-		preparedStatement.setString(3, personne.getDateNaissance());
-		preparedStatement.setString(4, personne.getVilleHabitation());
-
-		preparedStatement.executeUpdate();
-	} catch (SQLException e) {
-		e.printStackTrace();
-	}
+// Code permettant d'insérer des candidats dans la BDD	
+	
+//public void ajouterCandidat(Candidat candidat ) {
+//	loadDatabase();
+//	try {
+//		PreparedStatement preparedStatement = connexion.prepareStatement("INSERT INTO etudiants(nomEtudiant, prenomEtudiant, dateNaissanceEtudiant, villeAdresseEtudiant) VALUES(?, ?, ?, ?);");
+//		preparedStatement.setString(1, candidat.getNom());
+//		preparedStatement.setString(2, candidat.getPrenom());
+//		preparedStatement.setString(3, candidat.getDateNaissance());
+//		preparedStatement.setString(4, candidat.getVilleAdresse());
+//
+//		preparedStatement.executeUpdate();
+//	} catch (SQLException e) {
+//		e.printStackTrace();
+//	}
+//}
+	
 }
-}
+	

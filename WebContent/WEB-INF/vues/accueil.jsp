@@ -23,34 +23,37 @@
 		</div>
         <p>Bienvenue sur la JSP "Accueil" ! :)</p>
              
-
+<form method="post" action="accueil">
+            <label for="nom">Nom : </label>
+            <input type="text" name="nom" id="nom" />
+            
+            <input type="submit" />
+        </form>
+        
 <input type="text" id="inputPrenom" onkeyup="inputFilterPrenom()" placeholder="Prénom" title="Tapez un prénom">
 <input type="text" id="inputNom" onkeyup="inputFilterNom()" placeholder="Nom" title="Tapez un nom">
 <input type="text" id="inputSearch" onkeyup="inputFilterSearch()" placeholder="search" title="Cherchez un étudiant">
 
 
-<table id="tableEtudiants">
-			<tr>
-				<th>Prenom</th>
-				<th>Nom</th>
-				<th>Statut</th>
-				<th>Date de Naissance</th>
-				<th>Ville</th>
-			</tr>
-        <c:forEach var="candidat" items="${ candidats }">
-            <tr onclick="document.location='testbootstrap?id=${ candidat.idEtudiant }'"> <!-- Lien vers la fiche étudiant -->
-            	<td style=hidden><c:out value="${ candidat.prenom } ${ candidat.nom }"/></td>
-            	<td><c:out value="${ candidat.prenom }" /></td>
-            	<td><c:out value="${ candidat.nom }" /> </td>            	
-            	<td><c:out value="${ candidat.statut }"/> </td>
-            	<td><c:out value="${ candidat.dateNaissance }" /> </td>
-            	<td><c:out value="${ candidat.villeAdresse }" /> </td>
-            </tr>
-        </c:forEach>
-</table>
-    
-    
-
+		<table id="tableEtudiants">
+					<tr>
+						<th>Prenom</th>
+						<th>Nom</th>
+						<th>Statut</th>
+						<th>Date de Naissance</th>
+						<th>Ville</th>
+					</tr>
+		        <c:forEach var="candidat" items="${ candidats }">
+		            <tr onclick="document.location='testbootstrap?id=${ candidat.idEtudiant }'"> <!-- Lien vers la fiche étudiant -->
+		            	<!--<td style=hidden><c:out value="${ candidat.prenom } ${ candidat.nom }"/></td>-->
+		            	<td><c:out value="${ candidat.prenom }" /></td>
+		            	<td><c:out value="${ candidat.nom }" /> </td>            	
+		            	<td><c:out value="${ candidat.statut }"/> </td>
+		            	<td><c:out value="${ candidat.dateNaissance }" /> </td>
+		            	<td><c:out value="${ candidat.villeAdresse }" /> </td>
+		            </tr>
+		        </c:forEach>
+		</table>
     
     </body>
 </html>

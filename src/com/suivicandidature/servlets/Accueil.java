@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.suivicandidature.bdd.ListeEtudiantAccueil;
+import com.suivicandidature.bdd.CandidatBDD;
 import com.suivicandidature.classes.Candidat;
 
 public class Accueil extends HttpServlet {
@@ -24,7 +24,7 @@ public class Accueil extends HttpServlet {
     	String ville = request.getParameter("ville");
     	request.setAttribute("ville", ville);
     	
-		ListeEtudiantAccueil tableCandidat = new ListeEtudiantAccueil();
+		CandidatBDD tableCandidat = new CandidatBDD();
 		request.setAttribute("candidats", tableCandidat.recupererCandidat());
 		
 		this.getServletContext().getRequestDispatcher( "/WEB-INF/vues/accueil.jsp" ).forward( request, response );
@@ -47,6 +47,8 @@ public void doPost( HttpServletRequest request, HttpServletResponse response) th
 	
 	String choixCandidat = request.getParameter("choixCandidat");
 	request.setAttribute("choixPersonne", choixCandidat);
+	
+	String nom = request.getParameter("nom");
 	
 	this.getServletContext().getRequestDispatcher( "/WEB-INF/vues/accueil.jsp" ).forward( request, response );
 	

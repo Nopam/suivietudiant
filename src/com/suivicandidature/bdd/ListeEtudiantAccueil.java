@@ -12,7 +12,7 @@ import java.util.Date;
 
 import com.suivicandidature.classes.Candidat;
 
-public class ListeEtudiantAccueil {
+public class ListeEtudiantAccueil_SAV {
 
 	private Connection connexion;
 	
