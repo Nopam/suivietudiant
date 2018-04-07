@@ -44,6 +44,13 @@ public class CandidatBDD {
                 preparedStatement.setString(1, urlData1);
                 resultat = preparedStatement.executeQuery();
                 break;
+                
+            //Requête de récupération des données étudiant depuis la fiche étudiant  
+            case "Candidatures" : 
+                PreparedStatement preparedStatementCandidatures = connexion.prepareStatement("SELECT idEtudiant, nomEtudiant, prenomEtudiant, dateNaissanceEtudiant, villeAdresseEtudiant, statutEtudiant, dateRDVEntretienEtudiant, heureRDVEntretienEtudiant, demarrageFormationEtudiant FROM etudiants;");
+                preparedStatementCandidatures.setString(1, urlData1);
+                resultat = preparedStatementCandidatures.executeQuery();
+                break;
             }
 
 
@@ -111,11 +118,17 @@ public class CandidatBDD {
 public void ajouterCandidat(Candidat candidat ) {
 	loadDatabase();
 	try {
-		PreparedStatement preparedStatement = connexion.prepareStatement("INSERT INTO etudiants(nomEtudiant, prenomEtudiant, dateNaissanceEtudiant, villeAdresseEtudiant) VALUES(?, ?, ?, ?);");
+		PreparedStatement preparedStatement = connexion.prepareStatement("INSERT INTO etudiants(nomEtudiant, prenomEtudiant, dateNaissanceEtudiant, mailEtudiant, telEtudiant, numAdresseEtudiant, rueAdresseEtudiant, compAdresseEtudiant, cpAdresseEtudiant, villeAdresseEtudiant) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?);");
 		preparedStatement.setString(1, candidat.getNom());
 		preparedStatement.setString(2, candidat.getPrenom());
 		preparedStatement.setString(3, candidat.getDateNaissance());
-		preparedStatement.setString(4, candidat.getVilleAdresse());
+		preparedStatement.setString(4, candidat.getMail());
+		preparedStatement.setString(5, candidat.getTel());
+		preparedStatement.setInt(6, candidat.getNumAdresse());
+		preparedStatement.setString(7, candidat.getRueAdresse());
+		preparedStatement.setString(8, candidat.getCompAdresse());
+		preparedStatement.setString(9, candidat.getCpAdresse());
+		preparedStatement.setString(10, candidat.getVilleAdresse());
 
 		preparedStatement.executeUpdate();
 	} catch (SQLException e) {
