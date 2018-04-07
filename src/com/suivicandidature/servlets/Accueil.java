@@ -25,7 +25,7 @@ public class Accueil extends HttpServlet {
     	request.setAttribute("ville", ville);
     	
 		CandidatBDD tableCandidat = new CandidatBDD();
-		request.setAttribute("candidats", tableCandidat.recupererCandidat());
+		request.setAttribute("candidats", tableCandidat.recupererCandidat("accueil", 0));
 		
 		this.getServletContext().getRequestDispatcher( "/WEB-INF/vues/accueil.jsp" ).forward( request, response );
 	}

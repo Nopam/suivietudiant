@@ -49,7 +49,16 @@ public class CandidatBDD {
                 String statut = resultat.getString("statutEtudiant");
                 //Date dateRDVEntretien = resultat.getDate("dateRDVEntretienEtudiant");
 				
-				candidats.add(candidat);
+                Candidat candidat = new Candidat();
+                candidat.setNom(nom);
+                candidat.setPrenom(prenom);
+                candidat.setDateNaissance(dateNaissance);
+                candidat.setVilleAdresse(villeAdresse);
+                candidat.setStatut(statut);
+                candidat.setIdEtudiant(idEtudiant);
+                //candidat.setDateRDVEntretien(dateRDVEntretien);
+				
+                candidats.add(candidat);
 			}
 		} catch (SQLException e) {
 		} finally {
