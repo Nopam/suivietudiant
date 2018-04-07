@@ -16,7 +16,7 @@ public class CandidatBDD {
 
 	private Connection connexion;
 
-    // urlData1 est facultatif, si vous n'avez aucune info a récupérer mettre la valeur à null
+    // urlData1 est facultatif, si vous n'avez aucune info a récupérer mettre la valeur à 0
     public List<Candidat> recupererCandidat(String page, int urlData1) {
         List<Candidat> candidats = new ArrayList<Candidat>();
         Statement statement = null;
@@ -31,10 +31,10 @@ public class CandidatBDD {
                 statement = connexion.createStatement();
                 resultat = statement.executeQuery(query);
                 break;
-            case "ficheEtudiant" : query = "SELECT idEtudiant, nomEtudiant, prenomEtudiant, dateNaissanceEtudiant, villeAdresseEtudiant, statutEtudiant, dateRDVEntretienEtudiant FROM etudiants;";
-                PreparedStatement preparedStatement = connexion.prepareStatement("SELECT idEtudiant, nomEtudiant, prenomEtudiant, dateNaissanceEtudiant, villeAdresseEtudiant, statutEtudiant, dateRDVEntretienEtudiant FROM etudiants WHERE id := ?;");
+            case "ficheEtudiant" : 
+                PreparedStatement preparedStatement = connexion.prepareStatement("SELECT idEtudiant, nomEtudiant, prenomEtudiant, dateNaissanceEtudiant, villeAdresseEtudiant, statutEtudiant, dateRDVEntretienEtudiant FROM etudiants WHERE idEtudiant = ?;");
                 preparedStatement.setInt(1, urlData1);
-                preparedStatement.executeUpdate();
+                resultat = preparedStatement.executeQuery();
                 break;
             }
 
@@ -44,6 +44,7 @@ public class CandidatBDD {
                 int idEtudiant = resultat.getInt("idEtudiant");
                 String nom = resultat.getString("nomEtudiant");
                 String prenom = resultat.getString("prenomEtudiant");
+                System.out.println("id : " + prenom);
                 String dateNaissance = resultat.getString("dateNaissanceEtudiant");
                 String villeAdresse = resultat.getString("villeAdresseEtudiant");
                 String statut = resultat.getString("statutEtudiant");
@@ -59,7 +60,8 @@ public class CandidatBDD {
                 //candidat.setDateRDVEntretien(dateRDVEntretien);
 				
                 candidats.add(candidat);
-			}
+			
+            }
 		} catch (SQLException e) {
 		} finally {
 				//Fermeture de la connexion
@@ -94,20 +96,20 @@ public class CandidatBDD {
 
 // Code permettant d'insérer des candidats dans la BDD	
 	
-//public void ajouterCandidat(Candidat candidat ) {
-//	loadDatabase();
-//	try {
-//		PreparedStatement preparedStatement = connexion.prepareStatement("INSERT INTO etudiants(nomEtudiant, prenomEtudiant, dateNaissanceEtudiant, villeAdresseEtudiant) VALUES(?, ?, ?, ?);");
-//		preparedStatement.setString(1, candidat.getNom());
-//		preparedStatement.setString(2, candidat.getPrenom());
-//		preparedStatement.setString(3, candidat.getDateNaissance());
-//		preparedStatement.setString(4, candidat.getVilleAdresse());
-//
-//		preparedStatement.executeUpdate();
-//	} catch (SQLException e) {
-//		e.printStackTrace();
-//	}
-//}
+public void ajouterCandidat(Candidat candidat ) {
+	loadDatabase();
+	try {
+		PreparedStatement preparedStatement = connexion.prepareStatement("INSERT INTO etudiants(nomEtudiant, prenomEtudiant, dateNaissanceEtudiant, villeAdresseEtudiant) VALUES(?, ?, ?, ?);");
+		preparedStatement.setString(1, candidat.getNom());
+		preparedStatement.setString(2, candidat.getPrenom());
+		preparedStatement.setString(3, candidat.getDateNaissance());
+		preparedStatement.setString(4, candidat.getVilleAdresse());
+
+		preparedStatement.executeUpdate();
+	} catch (SQLException e) {
+		e.printStackTrace();
+	}
+}
 	
 }
 	

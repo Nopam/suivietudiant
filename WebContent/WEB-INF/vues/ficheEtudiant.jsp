@@ -25,25 +25,40 @@
 	
 			</div>
 			<div id="ficheEtudiant">
+			
+			
+			
+			
+			<c:forEach var="candidat" items="${ candidats }">
 			<form action="ficheEtudiant" method="POST">
+			
 				<label for="studentName">Nom: </label>
-				<span id="studentName" class="showInfos"></span> 
+				<span id="studentName" class="showInfos">
+				
+				<c:out value="${ candidat.nom }" /></span> 
 				<input type="text" placeholder="nom" name="name" class="inputInfos"><br />
 				
 				<label for="studentSurname">Prénom: </label>
-				<span id="studentSurname" class="showInfos"></span>
+				<span id="studentSurname" class="showInfos">
+				<c:out value="${ candidat.prenom }" />
+				</span>
 				<input type="text" placeholder="prénom" name="surname" class="inputInfos"><br />
 				
 				<label for="studentAge">Date de naissance: </label>
-				<span id="studentAge" class="showInfos"></span>
+				<span id="studentAge" class="showInfos">
+				<c:out value="${ candidat.dateNaissance }" />
+				</span>
 				<input type="text" placeholder="01/01/1900" name="date" class="inputInfos"><br />
 				
 				<label for="studentMail">Mail: </label>
-				<span id="studentMail" class="showInfos"></span>
+				<span id="studentMail" class="showInfos">
+				<c:out value="${ candidat.mail }" />
+				</span>
 				<input type="text" placeholder="mailEtudiant@gmail.com" name="mail" class="inputInfos"><br />
 				
 				<label for="studentTel">Tel: </label>
-				<span id="studentTel" class="showInfos"></span>
+				<span id="studentTel" class="showInfos">
+				</span>
 				<input type="number" placeholder="Tel" name="tel" class="inputInfos"><br />
 					
 					
@@ -57,7 +72,9 @@
 					
 					<input  type="submit" value="Valider" class="inputInfos button" onclick="validate()">
 					<input class="showInfos button" value="Modifier" onclick="modifInProgress()">
+					
 				</form>
+				</c:forEach>
 				</div>
 			</div>			
     </body>

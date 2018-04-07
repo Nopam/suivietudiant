@@ -7,12 +7,18 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.suivicandidature.bdd.CandidatBDD;
 import com.suivicandidature.classes.*;
 
 public class FicheEtudiant extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	public void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException{
+		
+		CandidatBDD listeCandidat = new CandidatBDD();
+		request.setAttribute("candidats", listeCandidat.recupererCandidat("ficheEtudiant", 1));
+		
 		
 		this.getServletContext().getRequestDispatcher( "/WEB-INF/vues/ficheEtudiant.jsp" ).forward( request, response );
 

@@ -44,7 +44,7 @@
 						<th>Ville</th>
 					</tr>
 		        <c:forEach var="candidat" items="${ candidats }">
-		            <tr onclick="document.location='testbootstrap?id=${ candidat.idEtudiant }'"> <!-- Lien vers la fiche étudiant -->
+		            <tr onclick="document.location='ficheEtudiant?id=${ candidat.idEtudiant }'"> <!-- Lien vers la fiche étudiant -->
 		            	<!--<td style=hidden><c:out value="${ candidat.prenom } ${ candidat.nom }"/></td>-->
 		            	<td><c:out value="${ candidat.prenom }" /></td>
 		            	<td><c:out value="${ candidat.nom }" /> </td>            	
