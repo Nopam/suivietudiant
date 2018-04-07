@@ -18,7 +18,7 @@ public class FicheEtudiant extends HttpServlet {
 		
 		CandidatBDD listeCandidat = new CandidatBDD();
 		// J'ai ajouté un 3eme param vide 
-		request.setAttribute("candidats", listeCandidat.recupererCandidat("ficheEtudiant", "1", ""));
+		request.setAttribute("candidats", listeCandidat.recupererCandidat("ficheEtudiant", request.getParameter("id"), ""));
 		
 		
 		this.getServletContext().getRequestDispatcher( "/WEB-INF/vues/ficheEtudiant.jsp" ).forward( request, response );

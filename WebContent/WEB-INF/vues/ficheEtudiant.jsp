@@ -13,7 +13,7 @@
     <body onload="validate()">
 		<div id="menu">
 	    	<ul>
-	  			<li><a href="accueil">Accueil</a></li>
+	  			<li><a href="accueil?inputSearchAccueil=&selectTriAccueil=">Accueil</a></li>
 	  			<li><a href="candidatures">Candidatures</a></li>
 				<li><a href="ficheEtudiant">Fiche etudiant</a></li>
 				<li class="onRight"><a class="active" href="monprofil">Mon profil</a></li>
