@@ -33,6 +33,14 @@
     <label for="nom">Nom : </label>
     <input onKeyPress="if(event.keyCode == 13) validerForm();" type="text" id="inputSearchAccueil" name = "inputSearchAccueil" placeholder="Cherchez un étudiant" title="Cherchez un étudiant"/>
     
+    <select id="selectTriAccueil" name = "selectTriAccueil">
+    	<option value="">Trier</option>
+  		<option value="nomEtudiant">Nom</option>
+  		<option value="prenomEtudiant">Prenom</option>
+	  	<option value="dateRDVEntretien">Date de RDV</option>
+	  	<option value="semestreDemarrage">Semestre de démarrage</option>
+	</select>
+
             <input type="submit" />
         </form>
         

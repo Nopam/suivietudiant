@@ -31,8 +31,9 @@ public class CandidatBDD {
             
             //Requête de récupération des données étudiant depuis l'accueil
             case "accueil" :
-            	PreparedStatement preparedStatementAccueil = connexion.prepareStatement("SELECT idEtudiant, nomEtudiant, prenomEtudiant, dateNaissanceEtudiant, villeAdresseEtudiant, statutEtudiant, dateRDVEntretienEtudiant, heureRDVEntretienEtudiant, demarrageFormationEtudiant FROM etudiants WHERE concat(nomEtudiant, ' ', prenomEtudiant) like ? limit 10	;");
+            	PreparedStatement preparedStatementAccueil = connexion.prepareStatement("SELECT idEtudiant, nomEtudiant, prenomEtudiant, dateNaissanceEtudiant, villeAdresseEtudiant, statutEtudiant, dateRDVEntretienEtudiant, heureRDVEntretienEtudiant, demarrageFormationEtudiant FROM etudiants WHERE concat(nomEtudiant, ' ', prenomEtudiant) like ? OR concat(prenomEtudiant, ' ', nomEtudiant) like ? limit 10	;");
             	preparedStatementAccueil.setString(1, urlData1);
+            	preparedStatementAccueil.setString(2, urlData1);
             	resultat = preparedStatementAccueil.executeQuery();
                 break;
                 
