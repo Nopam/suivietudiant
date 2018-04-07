@@ -24,10 +24,10 @@ public class Accueil extends HttpServlet {
 //    	String ville = request.getParameter("ville");
 //    	request.setAttribute("ville", ville);
     	
-    	String nomtest = ("%"+request.getParameter("inputSearchAccueil")+"%"); //% pour compléter le like
-    	
+    	String formFiltreNom = ("%"+request.getParameter("inputSearchAccueil")+"%"); //% pour compléter le like
+    	String formTri = request.getParameter("selectTriAccueil");
 		CandidatBDD tableCandidat = new CandidatBDD();
-		request.setAttribute("candidats", tableCandidat.recupererCandidat("accueil", nomtest));
+		request.setAttribute("candidats", tableCandidat.recupererCandidat("accueil", formFiltreNom, formTri));
 		
 		this.getServletContext().getRequestDispatcher( "/WEB-INF/vues/accueil.jsp" ).forward( request, response );
 	}
