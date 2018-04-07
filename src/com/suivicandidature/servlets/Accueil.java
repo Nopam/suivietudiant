@@ -17,15 +17,17 @@ public class Accueil extends HttpServlet {
 
 	public void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException{
 
-		String nom = request.getParameter("nom");
-    	request.setAttribute("nom", nom);
-    	String age = request.getParameter("age");
-    	request.setAttribute("age", age);
-    	String ville = request.getParameter("ville");
-    	request.setAttribute("ville", ville);
+//		String nom = request.getParameter("nom");
+//    	request.setAttribute("nom", nom);
+//    	String age = request.getParameter("age");
+//    	request.setAttribute("age", age);
+//    	String ville = request.getParameter("ville");
+//    	request.setAttribute("ville", ville);
+    	
+    	String nomtest = ("%"+request.getParameter("inputSearchAccueil")+"%"); //% pour compléter le like
     	
 		CandidatBDD tableCandidat = new CandidatBDD();
-		request.setAttribute("candidats", tableCandidat.recupererCandidat("accueil", 0));
+		request.setAttribute("candidats", tableCandidat.recupererCandidat("accueil", nomtest));
 		
 		this.getServletContext().getRequestDispatcher( "/WEB-INF/vues/accueil.jsp" ).forward( request, response );
 	}
@@ -48,7 +50,7 @@ public void doPost( HttpServletRequest request, HttpServletResponse response) th
 	String choixCandidat = request.getParameter("choixCandidat");
 	request.setAttribute("choixPersonne", choixCandidat);
 	
-	String nom = request.getParameter("nom");
+	
 	
 	this.getServletContext().getRequestDispatcher( "/WEB-INF/vues/accueil.jsp" ).forward( request, response );
 	

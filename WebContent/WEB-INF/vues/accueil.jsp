@@ -9,6 +9,11 @@
         <title>Accueil</title>
         <link rel="stylesheet" href="ressources/css/style.css" />
         <script type="text/javascript" src="ressources/js/ajaxInputOnTable.js"></script>
+        <script>
+        	function validerForm(){
+   				document.getElementById("formulaire").submit();
+			}
+		</script>
     </head>
 
     <body>
@@ -23,17 +28,18 @@
 		</div>
         <p>Bienvenue sur la JSP "Accueil" ! :)</p>
              
-<form method="post" action="accueil">
-            <label for="nom">Nom : </label>
-            <input type="text" name="nom" id="nom" />
-            
+<form method="get" action="accueil" id = "formulaire">
+
+    <label for="nom">Nom : </label>
+    <input onKeyPress="if(event.keyCode == 13) validerForm();" type="text" id="inputSearchAccueil" name = "inputSearchAccueil" placeholder="Cherchez un étudiant" title="Cherchez un étudiant"/>
+    
             <input type="submit" />
         </form>
         
-<input type="text" id="inputPrenom" onkeyup="inputFilterPrenom()" placeholder="Prénom" title="Tapez un prénom">
+<!-- <input type="text" id="inputPrenom" onkeyup="inputFilterPrenom()" placeholder="Prénom" title="Tapez un prénom">
 <input type="text" id="inputNom" onkeyup="inputFilterNom()" placeholder="Nom" title="Tapez un nom">
 <input type="text" id="inputSearch" onkeyup="inputFilterSearch()" placeholder="search" title="Cherchez un étudiant">
-
+ -->
 
 		<table id="tableEtudiants">
 					<tr>

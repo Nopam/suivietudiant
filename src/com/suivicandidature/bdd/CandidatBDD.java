@@ -17,7 +17,7 @@ public class CandidatBDD {
 	private Connection connexion;
 
     // urlData1 est facultatif, si vous n'avez aucune info a récupérer mettre la valeur à 0
-    public List<Candidat> recupererCandidat(String page, int urlData1) {
+    public List<Candidat> recupererCandidat(String page, String urlData1) {
         List<Candidat> candidats = new ArrayList<Candidat>();
         Statement statement = null;
         String query;
@@ -27,13 +27,14 @@ public class CandidatBDD {
 
         try {
             switch (page) {
-            case "accueil" : query = "SELECT idEtudiant, nomEtudiant, prenomEtudiant, dateNaissanceEtudiant, villeAdresseEtudiant, statutEtudiant, dateRDVEntretienEtudiant FROM etudiants;";
-                statement = connexion.createStatement();
-                resultat = statement.executeQuery(query);
+            case "accueil" :
+            	PreparedStatement preparedStatementAccueil = connexion.prepareStatement("SELECT idEtudiant, nomEtudiant, prenomEtudiant, dateNaissanceEtudiant, villeAdresseEtudiant, statutEtudiant, dateRDVEntretienEtudiant FROM etudiants WHERE concat(nomEtudiant, ' ', prenomEtudiant) like ?;");
+            	preparedStatementAccueil.setString(1, urlData1);
+            	resultat = preparedStatementAccueil.executeQuery();
                 break;
             case "ficheEtudiant" : 
                 PreparedStatement preparedStatement = connexion.prepareStatement("SELECT idEtudiant, nomEtudiant, prenomEtudiant, dateNaissanceEtudiant, villeAdresseEtudiant, statutEtudiant, dateRDVEntretienEtudiant FROM etudiants WHERE idEtudiant = ?;");
-                preparedStatement.setInt(1, urlData1);
+                preparedStatement.setString(1, urlData1);
                 resultat = preparedStatement.executeQuery();
                 break;
             }

@@ -17,7 +17,7 @@ public class FicheEtudiant extends HttpServlet {
 	public void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException{
 		
 		CandidatBDD listeCandidat = new CandidatBDD();
-		request.setAttribute("candidats", listeCandidat.recupererCandidat("ficheEtudiant", 1));
+		request.setAttribute("candidats", listeCandidat.recupererCandidat("ficheEtudiant", "1"));
 		
 		
 		this.getServletContext().getRequestDispatcher( "/WEB-INF/vues/ficheEtudiant.jsp" ).forward( request, response );
