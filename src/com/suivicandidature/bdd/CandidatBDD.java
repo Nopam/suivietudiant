@@ -26,14 +26,19 @@ public class CandidatBDD {
         loadDatabase();
 
         try {
+        	//Switch permettant d'envoyer des requêtes différentes en fonction des pages web
             switch (page) {
+            
+            //Requête de récupération des données étudiant depuis l'accueil
             case "accueil" :
-            	PreparedStatement preparedStatementAccueil = connexion.prepareStatement("SELECT idEtudiant, nomEtudiant, prenomEtudiant, dateNaissanceEtudiant, villeAdresseEtudiant, statutEtudiant, dateRDVEntretienEtudiant FROM etudiants WHERE concat(nomEtudiant, ' ', prenomEtudiant) like ?;");
+            	PreparedStatement preparedStatementAccueil = connexion.prepareStatement("SELECT idEtudiant, nomEtudiant, prenomEtudiant, dateNaissanceEtudiant, villeAdresseEtudiant, statutEtudiant, dateRDVEntretienEtudiant, heureRDVEntretienEtudiant, demarrageFormationEtudiant FROM etudiants WHERE concat(nomEtudiant, ' ', prenomEtudiant) like ? limit 10	;");
             	preparedStatementAccueil.setString(1, urlData1);
             	resultat = preparedStatementAccueil.executeQuery();
                 break;
+                
+            //Requête de récupération des données étudiant depuis la fiche étudiant  
             case "ficheEtudiant" : 
-                PreparedStatement preparedStatement = connexion.prepareStatement("SELECT idEtudiant, nomEtudiant, prenomEtudiant, dateNaissanceEtudiant, villeAdresseEtudiant, statutEtudiant, dateRDVEntretienEtudiant FROM etudiants WHERE idEtudiant = ?;");
+                PreparedStatement preparedStatement = connexion.prepareStatement("SELECT idEtudiant, nomEtudiant, prenomEtudiant, dateNaissanceEtudiant, villeAdresseEtudiant, statutEtudiant, dateRDVEntretienEtudiant, heureRDVEntretienEtudiant, demarrageFormationEtudiant FROM etudiants WHERE idEtudiant = ?;");
                 preparedStatement.setString(1, urlData1);
                 resultat = preparedStatement.executeQuery();
                 break;
@@ -49,8 +54,10 @@ public class CandidatBDD {
                 String dateNaissance = resultat.getString("dateNaissanceEtudiant");
                 String villeAdresse = resultat.getString("villeAdresseEtudiant");
                 String statut = resultat.getString("statutEtudiant");
-                //Date dateRDVEntretien = resultat.getDate("dateRDVEntretienEtudiant");
-				
+                String dateRDVEntretien = resultat.getString("dateRDVEntretienEtudiant");
+                String heureRDVEntretien = resultat.getString("heureRDVEntretienEtudiant");
+                String demarrageFormation = resultat.getString("demarrageFormationEtudiant");
+                
                 Candidat candidat = new Candidat();
                 candidat.setNom(nom);
                 candidat.setPrenom(prenom);
@@ -58,7 +65,9 @@ public class CandidatBDD {
                 candidat.setVilleAdresse(villeAdresse);
                 candidat.setStatut(statut);
                 candidat.setIdEtudiant(idEtudiant);
-                //candidat.setDateRDVEntretien(dateRDVEntretien);
+                candidat.setDateRDVEntretien(dateRDVEntretien);
+                candidat.setHeureRDVEntretien(heureRDVEntretien);
+                candidat.setDemarrageFormation(demarrageFormation);
 				
                 candidats.add(candidat);
 			

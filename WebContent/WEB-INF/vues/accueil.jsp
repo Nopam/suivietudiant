@@ -48,6 +48,8 @@
 						<th>Statut</th>
 						<th>Date de Naissance</th>
 						<th>Ville</th>
+						<th>Date d'entretien</th>
+						<th>Semestre de démarrage</th>
 					</tr>
 		        <c:forEach var="candidat" items="${ candidats }">
 		            <tr onclick="document.location='ficheEtudiant?id=${ candidat.idEtudiant }'"> <!-- Lien vers la fiche étudiant -->
@@ -57,6 +59,9 @@
 		            	<td><c:out value="${ candidat.statut }"/> </td>
 		            	<td><c:out value="${ candidat.dateNaissance }" /> </td>
 		            	<td><c:out value="${ candidat.villeAdresse }" /> </td>
+		            	<td><c:out value="${ candidat.heureRDVEntretien } - ${ candidat.dateRDVEntretien }" /> </td>
+		            	<td><c:out value="${ candidat.demarrageFormation }" /> </td>
+		            	
 		            </tr>
 		        </c:forEach>
 		</table>
