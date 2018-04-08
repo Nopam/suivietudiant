@@ -29,7 +29,7 @@
 			
 			
 			<c:forEach var="candidat" items="${ candidats }">
-			<form action="ficheEtudiant" method="POST">
+			<form action="accueil?inputSearchAccueil=&selectTriAccueil=" method="POST">
 			
 				<label for="studentName">Nom: </label>
 				<span id="studentName" class="showInfos">
@@ -59,8 +59,32 @@
 				<span id="studentTel" class="showInfos">
 				<c:out value="${ candidat.tel }" />
 				</span>
-				<input type="number" placeholder="Tel" name="tel" class="inputInfos"><br />
+				<input type="number" placeholder="0612345678" name="tel" class="inputInfos" maxlength="10"><br />
 					
+				<label for="numRue">Numéro de rue: </label>
+				<span id="numRue" class="showInfos">
+				<c:out value="${ candidat.numAdresse }" />
+				</span>
+				<input type="number" placeholder="10" name="num_rue" class="inputInfos"><br />
+				
+				<label for="rue">Libellé rue: </label>
+				<span id="rue" class="showInfos">
+				<c:out value="${ candidat.rueAdresse }" />
+				</span>
+				<input type="text" placeholder="de la chasse" name="rue" class="inputInfos"><br />
+				
+				<label for="cp">Code postal: </label>
+				<span id="cp" class="showInfos">
+				<c:out value="${ candidat.cpAdresse }" />
+				</span>
+				<input type="number" placeholder="10" name="cp" class="inputInfos" maxlength="5"><br />
+				
+				<label for="ville">Ville: </label>
+				<span id="ville" class="showInfos">
+				<c:out value="${ candidat.villeAdresse }" />
+				</span>
+				<input type="text" placeholder="de la chasse" name="ville" class="inputInfos"><br />
+
 					
 				<label for="studentStatut">Statut: </label>
 					<select id="studentStatut">
@@ -79,3 +103,5 @@
 			</div>			
     </body>
 </html>
+
+t

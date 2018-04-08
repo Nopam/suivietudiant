@@ -13,6 +13,7 @@ import com.suivicandidature.classes.*;
 
 public class FicheEtudiant extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	Candidat e1 = new Candidat();
 
 	public void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException{
 		
@@ -37,7 +38,7 @@ public class FicheEtudiant extends HttpServlet {
 			 String tel = request.getParameter("tel");
 			 String statut = request.getParameter("statut");
 			 
-			 Candidat e1 = new Candidat();
+			 
 			 e1.setNom(nom);
 			 e1.setPrenom(prenom);
 			 e1.setDateNaissance(dateNaissance);

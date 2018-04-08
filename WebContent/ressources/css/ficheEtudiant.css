@@ -84,6 +84,10 @@ div#central div#ficheEtudiant input,select{
 	margin-bottom: 1em;
 }
 
+div#central div#ficheEtudiant form label{
+	font-weight: bold;
+}
+
 div#central div#ficheEtudiant .button{
   display: inline-block;
   padding: 15px 25px;
@@ -93,13 +97,13 @@ div#central div#ficheEtudiant .button{
   text-decoration: none;
   outline: none;
   color: #fff;
-  background-color: #4CAF50;
+  background-color: #35547e;
   border: none;
   border-radius: 15px;
   box-shadow: 0 9px #999;
 }
 
-div#central div#ficheEtudiant .button:hover {background-color: #3e8e41}
+div#central div#ficheEtudiant .button:hover {background-color: #6289bd}
 
 div#central div#ficheEtudiant .button:active {
   background-color: #3e8e41;

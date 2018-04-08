@@ -2,13 +2,11 @@
  * 
  */
 
-let personneInfos = function initPersonneInfos(){
-	return {};
-}
+
 
 function updateInfos(){
 	
-	$('.showInfos').hide();
+
 }
 
 let modifInProgress = function(){
