@@ -75,7 +75,7 @@ div#central div#ficheEtudiant{
 	max-width: 65%;
 	max-height: 100%;
 	display: inline-table;
-	background-color: green;
+	
 }
 
 div#central div#ficheEtudiant input,select{

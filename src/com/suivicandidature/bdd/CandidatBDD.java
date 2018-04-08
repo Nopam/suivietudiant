@@ -40,7 +40,7 @@ public class CandidatBDD {
                 
             //Requête de récupération des données étudiant depuis la fiche étudiant  
             case "ficheEtudiant" : 
-                PreparedStatement preparedStatement = connexion.prepareStatement("SELECT idEtudiant, nomEtudiant, prenomEtudiant, dateNaissanceEtudiant, villeAdresseEtudiant, statutEtudiant, dateRDVEntretienEtudiant, heureRDVEntretienEtudiant, demarrageFormationEtudiant FROM etudiants WHERE idEtudiant = ?;");
+                PreparedStatement preparedStatement = connexion.prepareStatement("SELECT idEtudiant, nomEtudiant, prenomEtudiant, mailEtudiant, telEtudiant, dateNaissanceEtudiant, numAdresseEtudiant, rueAdresseEtudiant, villeAdresseEtudiant, cpAdresseEtudiant, statutEtudiant, dateRDVEntretienEtudiant, heureRDVEntretienEtudiant, demarrageFormationEtudiant FROM etudiants WHERE idEtudiant = ?;");
                 preparedStatement.setString(1, urlData1);
                 resultat = preparedStatement.executeQuery();
                 break;
@@ -60,7 +60,7 @@ public class CandidatBDD {
                 String nom = resultat.getString("nomEtudiant");
                 String prenom = resultat.getString("prenomEtudiant");
                 System.out.println("id : " + prenom);
-                String dateNaissance = resultat.getString("dateNaissanceEtudiant");
+                String dateNaissance = resultat.getString("dateNaissanceEtudiant");                
                 String villeAdresse = resultat.getString("villeAdresseEtudiant");
                 String statut = resultat.getString("statutEtudiant");
                 String dateRDVEntretien = resultat.getString("dateRDVEntretienEtudiant");
@@ -77,6 +77,22 @@ public class CandidatBDD {
                 candidat.setDateRDVEntretien(dateRDVEntretien);
                 candidat.setHeureRDVEntretien(heureRDVEntretien);
                 candidat.setDemarrageFormation(demarrageFormation);
+                
+                if (page.equals("ficheEtudiant")) {
+                	 String mail = resultat.getString("mailEtudiant");
+                     String tel = resultat.getString("telEtudiant");
+                     int numAdresse = resultat.getInt("numAdresseEtudiant");
+                     String rueAdresse = resultat.getString("rueAdresseEtudiant");
+                     String cpAdresse = resultat.getString("cpAdresseEtudiant");
+                     
+                     candidat.setMail(mail);
+                     candidat.setTel(tel);
+                     candidat.setNumAdresse(numAdresse);
+                     candidat.setRueAdresse(rueAdresse);
+                     candidat.setCpAdresse(cpAdresse);
+                    System.out.println("cp: " + cpAdresse);
+                }
+                
 				
                 candidats.add(candidat);
 			

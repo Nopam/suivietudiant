@@ -57,6 +57,7 @@
 				
 				<label for="studentTel">Tel: </label>
 				<span id="studentTel" class="showInfos">
+				<c:out value="${ candidat.tel }" />
 				</span>
 				<input type="number" placeholder="Tel" name="tel" class="inputInfos"><br />
 					
