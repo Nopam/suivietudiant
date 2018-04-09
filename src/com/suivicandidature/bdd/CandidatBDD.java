@@ -8,9 +8,10 @@ import java.sql.Statement;
 import java.sql.PreparedStatement;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Date;
 
-import com.suivicandidature.classes.Candidat;
+import com.suivicandidature.beans.Candidat;
+
+import java.util.Date;
 
 public class CandidatBDD {
 

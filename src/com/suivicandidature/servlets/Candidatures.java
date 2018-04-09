@@ -7,8 +7,9 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import com.suivicandidature.classes.Candidat;
+
 import com.suivicandidature.bdd.CandidatBDD;
+import com.suivicandidature.beans.Candidat;
 
 public class Candidatures extends HttpServlet {
 	private static final long serialVersionUID = 1L;

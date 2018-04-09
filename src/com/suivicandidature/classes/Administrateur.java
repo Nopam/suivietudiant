@@ -1,8 +1,12 @@
 package com.suivicandidature.classes;
 
-public class Administrateur extends Professeur{
+public class Administrateur{
 
-	public Administrateur(String nom, String prenom, String adresseMail, Module matiere) {
-		super(nom,prenom,adresseMail,matiere);
+	String nom, prenom, adresseMail, matiere;
+	public Administrateur(String nom, String prenom, String adresseMail, String matiere) {
+		this.nom = nom;
+		this.prenom = prenom;
+		this.adresseMail = adresseMail;
+		this.matiere = matiere;
 	}
 }

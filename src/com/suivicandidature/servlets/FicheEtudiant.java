@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.suivicandidature.bdd.CandidatBDD;
+import com.suivicandidature.beans.Candidat;
 import com.suivicandidature.classes.*;
 
 public class FicheEtudiant extends HttpServlet {

@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.suivicandidature.bdd.CandidatBDD;
-import com.suivicandidature.classes.Candidat;
+import com.suivicandidature.beans.Candidat;
 
 public class Accueil extends HttpServlet {
 	private static final long serialVersionUID = 1L;

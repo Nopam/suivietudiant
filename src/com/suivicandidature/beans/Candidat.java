@@ -1,4 +1,4 @@
-package com.suivicandidature.classes;
+package com.suivicandidature.beans;
 
 import java.util.Date;
 
