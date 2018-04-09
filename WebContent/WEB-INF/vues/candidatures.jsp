@@ -18,7 +18,6 @@
 			</ul>
 		</div>
 		
-		
         <p>Bienvenue sur la JSP "Candidature" ! :)</p>
         
         <form method="post" action="candidatures">
