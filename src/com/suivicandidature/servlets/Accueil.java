@@ -14,7 +14,12 @@ import com.suivicandidature.classes.Candidat;
 
 public class Accueil extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+	
+	
+	/**
+	 * Méthode permettant de récupérer les données de la JSP en méthode doGet
+	 * Cette méthode permet également de faire appel à la méthode de CandidatBDD permettant de requêter la BDD
+	 */
 	public void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException{
 
 //		String nom = request.getParameter("nom");
@@ -24,15 +29,23 @@ public class Accueil extends HttpServlet {
 //    	String ville = request.getParameter("ville");
 //    	request.setAttribute("ville", ville);
     	
-    	String formFiltreNom = ("%"+request.getParameter("inputSearchAccueil")+"%"); //% pour compléter le like
+		// Parametre envoyé à CandidatBDD afin de requêter = "%" + contenu de l'input renvoyé via l'URL en doGet + "%"
+    	String formFiltreNom = ("%"+request.getParameter("inputSearchAccueil")+"%");
+    	
+    	//Parametre pour trier (non fonctionnel à ce jour)
     	String formTri = request.getParameter("selectTriAccueil");
+    	
+    	
 		CandidatBDD tableCandidat = new CandidatBDD();
 		request.setAttribute("candidats", tableCandidat.recupererCandidat("accueil", formFiltreNom, formTri));
 		
 		this.getServletContext().getRequestDispatcher( "/WEB-INF/vues/accueil.jsp" ).forward( request, response );
 	}
 
-
+	
+	/**
+	 * Méthode permettant de récupérer les données de la JSP en méthode doPost
+	 */
 public void doPost( HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
 // Code permettant d'insérer des candidats dans la BDD
