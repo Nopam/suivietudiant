@@ -29,12 +29,12 @@
   </servlet-mapping>
   <description>Servlet Candidatures</description>
   <servlet>
-    <servlet-name>Candidatures</servlet-name>
-    <servlet-class>com.suivicandidature.servlets.Candidatures</servlet-class>
+    <servlet-name>NouveauCandidat</servlet-name>
+    <servlet-class>com.suivicandidature.servlets.NouveauCandidat</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>Candidatures</servlet-name>
-    <url-pattern>/candidatures</url-pattern>
+    <servlet-name>NouveauCandidat</servlet-name>
+    <url-pattern>/nouveaucandidat</url-pattern>
   </servlet-mapping>
   <description>Fiche Etudiant</description>
   <servlet>

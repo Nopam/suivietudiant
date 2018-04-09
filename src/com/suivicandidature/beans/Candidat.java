@@ -9,13 +9,15 @@ public class Candidat {
 	cpAdresse, villeAdresse, statut, demarrageFormation, dateRDVEntretien, heureRDVEntretien;
 	private Date dateCreation, dateMaj;
 	
-	//Constructeur par defaut
+	/**
+	 * Constructeur par défaut
+	 */
 	public Candidat(){
 		
 	};
 	
 	/**
-	 * 
+	 * Constructeur de l'objet candidat
 	 * @param idEtudiant = identifiant du candidat
 	 * @param idProfReferent = identifiant du professeur referent (inutilise à ce jour)
 	 * @param nom = nom de famille du candidat

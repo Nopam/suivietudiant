@@ -17,6 +17,13 @@ public class CandidatBDD {
 
 	private Connection connexion;
 
+	/**
+	 * 
+	 * @param page String utilise dans le Switch..Case
+	 * @param urlData1 Premier parametre a destination des requetes SQL
+	 * @param urlData2 Second parametre a destination des requetes SQL
+	 * @return
+	 */
     // urlData1 est facultatif, si vous n'avez aucune info a récupérer mettre la valeur à 0
     public List<Candidat> recupererCandidat(String page, String urlData1, String urlData2) {
         List<Candidat> candidats = new ArrayList<Candidat>();
@@ -115,6 +122,9 @@ public class CandidatBDD {
 			return candidats;
 	}
 	
+    /**
+     * Connexion a la base de données MySQL
+     */
 	private void loadDatabase() {
 		//Chargement du driver
 		
@@ -130,8 +140,10 @@ public class CandidatBDD {
 			}
 	}
 
-// Code permettant d'insérer des candidats dans la BDD	
-	
+/**
+ * Insertion d'objet "Candidat" dans la base de donnees
+ * @param candidat Objet candidat
+ */
 public void ajouterCandidat(Candidat candidat ) {
 	loadDatabase();
 	try {

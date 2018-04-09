@@ -17,7 +17,7 @@ public class Accueil extends HttpServlet {
 	
 	
 	/**
-	 * Méthode permettant de récupérer les données de la JSP en méthode doGet
+	 * Méthode permettant de récupérer les données de la JSP Accueil en méthode doGet
 	 * Cette méthode permet également de faire appel à la méthode de CandidatBDD permettant de requêter la BDD
 	 */
 	public void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException{

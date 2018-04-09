@@ -11,14 +11,22 @@ import javax.servlet.http.HttpServletResponse;
 import com.suivicandidature.bdd.CandidatBDD;
 import com.suivicandidature.beans.Candidat;
 
-public class Candidatures extends HttpServlet {
+public class NouveauCandidat extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * Méthode permettant de récupérer les données de la JSP Candidatures en méthode doGet
+	 * Cette méthode permet également de faire appel à la méthode de CandidatBDD permettant de requêter la BDD
+	 */
 	public void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException{
 		
-		this.getServletContext().getRequestDispatcher( "/WEB-INF/vues/candidatures.jsp" ).forward( request, response );
+		this.getServletContext().getRequestDispatcher( "/WEB-INF/vues/nouveauCandidat.jsp" ).forward( request, response );
 	}
 	
+	/**
+	 * Méthode permettant de récupérer les données de la JSP Candidatures en méthode doPost
+	 * Cette méthode permet également de faire appel à la méthode de CandidatBDD permettant de requêter la BDD
+	 */
 	public void doPost( HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		// Code permettant d'insérer des candidats dans la BDD
@@ -46,7 +54,7 @@ public class Candidatures extends HttpServlet {
 			
 			
 			
-			this.getServletContext().getRequestDispatcher( "/WEB-INF/vues/candidatures.jsp" ).forward( request, response );
+			this.getServletContext().getRequestDispatcher( "/WEB-INF/vues/nouveauCandidat.jsp" ).forward( request, response );
 			
 		}
 }

@@ -5,22 +5,21 @@
     <head>
         <meta charset="utf-8" />
         <title>Accueil</title>
-        <link rel="stylesheet" href="ressources/css/candidatures.css" />
+        <link rel="stylesheet" href="ressources/css/nouveaucandidat.css" />
     </head>
 
 <body>
 		<div id="menu">
 	    	<ul>
 	  			<li><a href="accueil?inputSearchAccueil=&selectTriAccueil=">Accueil</a></li>
-	  			<li><a href="candidatures">Candidature</a></li>
+	  			<li><a href="nouveaucandidat">Nouveau candidat</a></li>
 				<li class="onRight"><a href="monprofil">Mon profil</a></li>
-				<li><a href="testbootstrap">Test Bootstrap</a></li>
 			</ul>
 		</div>
 		
         <p>Bienvenue sur la JSP "Candidature" ! :)</p>
         
-        <form method="post" action="candidatures">
+        <form method="post" action="nouveaucandidat">
         
             <input type="text" required name="nom" id="nom" placeholder="Nom"/>
         

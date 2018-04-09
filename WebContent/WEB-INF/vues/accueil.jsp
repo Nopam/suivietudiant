@@ -20,9 +20,8 @@
 		<div id="menu">
 	    	<ul>
 	  			<li><a href="accueil?inputSearchAccueil=&selectTriAccueil=">Accueil</a></li>
-	  			<li><a href="candidatures">Candidature</a></li>
+	  			<li><a href="nouveaucandidat">Nouveau candidat</a></li>
 				<li class="onRight"><a href="monprofil">Mon profil</a></li>
-				<li><a href="testbootstrap">Test Bootstrap</a></li>
 			</ul>
 		</div>
         <p>Bienvenue sur la JSP "Accueil" ! :)</p>
