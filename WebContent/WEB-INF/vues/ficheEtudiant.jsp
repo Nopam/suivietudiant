@@ -31,69 +31,91 @@
 			<c:forEach var="candidat" items="${ candidats }">
 			<form action="accueil?inputSearchAccueil=&selectTriAccueil=" method="POST">
 			
+				<div class="textLine">
 				<label for="studentName">Nom: </label>
 				<span id="studentName" class="showInfos">
+				<c:out value="${ candidat.nom }" />
+				</span> 
+				<input type="text" value="${ candidat.nom }" name="name" class="inputInfos"><br />
+				</div>
 				
-				<c:out value="${ candidat.nom }" /></span> 
-				<input type="text" placeholder="nom" name="name" class="inputInfos"><br />
-				
+				<div class="textLine">
 				<label for="studentSurname">Prénom: </label>
 				<span id="studentSurname" class="showInfos">
 				<c:out value="${ candidat.prenom }" />
 				</span>
-				<input type="text" placeholder="prénom" name="surname" class="inputInfos"><br />
+				<input type="text" value="${ candidat.prenom }" name="surname" class="inputInfos"><br />
+				</div>
 				
+				<div class="textLine">
 				<label for="studentAge">Date de naissance: </label>
 				<span id="studentAge" class="showInfos">
 				<c:out value="${ candidat.dateNaissance }" />
 				</span>
-				<input type="text" placeholder="01/01/1900" name="date" class="inputInfos"><br />
+				<input type="text" value="${ candidat.dateNaissance }" name="date" class="inputInfos"><br />
+				</div>
 				
+				<div class="textLine">
 				<label for="studentMail">Mail: </label>
 				<span id="studentMail" class="showInfos">
 				<c:out value="${ candidat.mail }" />
 				</span>
-				<input type="text" placeholder="mailEtudiant@gmail.com" name="mail" class="inputInfos"><br />
+				<input type="text" value="${ candidat.mail }" name="mail" class="inputInfos"><br />
+				</div>
 				
+				<div class="textLine">
 				<label for="studentTel">Tel: </label>
 				<span id="studentTel" class="showInfos">
 				<c:out value="${ candidat.tel }" />
 				</span>
-				<input type="number" placeholder="0612345678" name="tel" class="inputInfos" maxlength="10"><br />
-					
+				<input type="number" value="${ candidat.tel }" name="tel" class="inputInfos" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="10"><br />
+				</div>
+				
+				<div class="textLine">
 				<label for="numRue">Numéro de rue: </label>
 				<span id="numRue" class="showInfos">
 				<c:out value="${ candidat.numAdresse }" />
 				</span>
-				<input type="number" placeholder="10" name="num_rue" class="inputInfos"><br />
+				<input type="number" value="${ candidat.numAdresse }" name="num_rue" class="inputInfos"><br />
+				</div>
 				
+				<div class="textLine">
 				<label for="rue">Libellé rue: </label>
 				<span id="rue" class="showInfos">
 				<c:out value="${ candidat.rueAdresse }" />
 				</span>
-				<input type="text" placeholder="de la chasse" name="rue" class="inputInfos"><br />
+				<input type="text" value="${ candidat.rueAdresse }" name="rue" class="inputInfos"><br />
+				</div>
 				
+				<div class="textLine">
 				<label for="cp">Code postal: </label>
 				<span id="cp" class="showInfos">
 				<c:out value="${ candidat.cpAdresse }" />
 				</span>
-				<input type="number" placeholder="10" name="cp" class="inputInfos" maxlength="5"><br />
+				<input type="number" value="${ candidat.cpAdresse }" name="cp" class="inputInfos" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="5"><br />
+				</div>
 				
+				<div class="textLine">
 				<label for="ville">Ville: </label>
 				<span id="ville" class="showInfos">
 				<c:out value="${ candidat.villeAdresse }" />
 				</span>
-				<input type="text" placeholder="de la chasse" name="ville" class="inputInfos"><br />
-
-					
+				<input type="text" value="${ candidat.villeAdresse }" name="ville" class="inputInfos"><br />
+				</div>
+				
+				<div class="textLine">	
 				<label for="studentStatut">Statut: </label>
-					<select id="studentStatut">
+				<span id="statut" class="showInfos">
+				<c:out value="${ candidat.statut }" />
+				</span>
+					<select id="studentStatut" class="inputInfos">
 					  <option value="toCheck">A consulter</option> 
-					  <option value="refused" selected>Refusé</option>
-					  <option value="accepted" selected>Accepté</option>
+					  <option value="refused" >Refusé</option>
+					  <option value="accepted" >Accepté</option>
 					  <option value="inProgress">En cours</option>
 					</select><br />
-					
+				</div>
+				
 					<input  type="submit" value="Valider" class="inputInfos button" onclick="validate()">
 					<input class="showInfos button" value="Modifier" onclick="modifInProgress()">
 					
