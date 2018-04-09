@@ -20,7 +20,7 @@
         <p>Bienvenue sur la JSP "Candidature" ! :)</p>
         
         <form method="post" action="nouveaucandidat">
-        
+        <div id = infosPerso>
             <input type="text" required name="nom" id="nom" placeholder="Nom"/>
         
             <input type="text" required name="prenom" id="prenom" placeholder="Prénom"/>
@@ -30,7 +30,8 @@
             <input type="text" required name="mail" id="mail" placeholder="Adresse mail"/>
             
             <input type="text" required name="tel" id="tel" placeholder="Numéro de téléphone"/>
-            
+         </div>
+         <div id=adresse>
             <input type="text" required name="numAdresse" id="numAdresse" placeholder="Numéro Adresse"/>
             
             <input type="text" required name="rueAdresse" id="rueAdresse" placeholder="Rue"/>
@@ -40,6 +41,7 @@
             <input type="text" required name="cpAdresse" id="cpAdresse" placeholder="Code postal"/>
             
             <input type="text" required name="villeAdresse" id="villeAdresse" placeholder="Ville"/>
+          </div>
         <input type="submit" />
         
     </form>
