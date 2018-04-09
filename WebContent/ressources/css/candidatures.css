@@ -1,0 +1,59 @@
+/* ------------------------------------------ MENU ------------------------------------------ */
+
+
+div#menu p {
+	font-size: 30;
+	color: red;
+}
+
+div#menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+div#menu li {
+    float: left;
+}
+
+div#menu li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+div#menu ul li.onRight{
+	float:	right; 
+	background-color:	#35547e;
+}
+
+div#menu li a:hover {
+    background-color: #446ba2;
+    opacity:0.66;
+}
+
+div#menu .active {
+    background-color: #446ba2;
+}
+
+
+/*------------------------- Style des inputs  ------------------------------*/
+
+input{
+	background-image: url("ressources/img/search-icon.png");
+	background-position: 10px 10px;
+	background-repeat: no-repeat;
+	width: 20%;
+	font-size: 16px;
+	padding: 12px 20px 12px 20px;
+	border: 1px solid #ddd;
+	margin-bottom: 12px;
+}
+
+body {
+	background-color: #F5F5DC;
+}

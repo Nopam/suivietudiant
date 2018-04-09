@@ -5,7 +5,7 @@
     <head>
         <meta charset="utf-8" />
         <title>Accueil</title>
-        <link rel="stylesheet" href="ressources/css/style.css" />
+        <link rel="stylesheet" href="ressources/css/candidatures.css" />
     </head>
 
 <body>
@@ -23,36 +23,25 @@
         
         <form method="post" action="candidatures">
         
-        <p> <label for="nom">Nom : </label>
-            <input type="text" name="nom" id="nom" /> </p>
+            <input type="text" required name="nom" id="nom" placeholder="Nom"/>
         
-        <p> <label for="prenom">Prénom : </label>
-            <input type="text" name="prenom" id="prenom" /> </p>
-        
-        <p> <label for="dateNaissance">Date de naissance : </label>
-            <input type="text" name="dateNaissance" id="dateNaissance" /> </p>
+            <input type="text" required name="prenom" id="prenom" placeholder="Prénom"/>
 
-        <p> <label for="mail">Adresse mail : </label>
-            <input type="text" name="mail" id="mail" /> </p>
+            <input type="text" required name="dateNaissance" id="dateNaissance" placeholder="Date de naissance"/>
+
+            <input type="text" required name="mail" id="mail" placeholder="Adresse mail"/>
             
-        <p> <label for="mail">Numéro de téléphone : </label>
-            <input type="text" name="tel" id="tel" /> </p>
+            <input type="text" required name="tel" id="tel" placeholder="Numéro de téléphone"/>
             
-        <p> Adresse : </p>
-        <p> <label for="mail">Numéro  : </label>
-            <input type="text" name="numAdresse" id="numAdresse" /> </p>
+            <input type="text" required name="numAdresse" id="numAdresse" placeholder="Numéro Adresse"/>
             
-        <p> <label for="mail">Rue : </label>
-            <input type="text" name="rueAdresse" id="rueAdresse" /> </p>
+            <input type="text" required name="rueAdresse" id="rueAdresse" placeholder="Rue"/>
             
-        <p> <label for="mail">Complément : </label>
-            <input type="text" name="compAdresse" id="compAdresse" /> </p>
+            <input type="text" required name="compAdresse" id="compAdresse" placeholder="Complément d'adresse"/>
             
-       	<p> <label for="mail">Code postal : </label>
-            <input type="text" name="cpAdresse" id="cpAdresse" /> </p>
+            <input type="text" required name="cpAdresse" id="cpAdresse" placeholder="Code postal"/>
             
-       	<p> <label for="mail">Ville : </label>
-            <input type="text" name="villeAdresse" id="villeAdresse" /> </p>
+            <input type="text" required name="villeAdresse" id="villeAdresse" placeholder="Ville"/>
         <input type="submit" />
         
     </form>
