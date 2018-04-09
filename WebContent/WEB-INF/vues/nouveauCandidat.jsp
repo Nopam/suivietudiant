@@ -17,9 +17,10 @@
 			</ul>
 		</div>
 		
-        <p>Bienvenue sur la JSP "Candidature" ! :)</p>
         
         <form method="post" action="nouveaucandidat">
+        
+        <p> Informations personnelles : </p>
         <div id = infosPerso>
             <input type="text" required name="nom" id="nom" placeholder="Nom"/>
         
@@ -31,6 +32,8 @@
             
             <input type="text" required name="tel" id="tel" placeholder="Numéro de téléphone"/>
          </div>
+         
+         <p> Adresse : </p>
          <div id=adresse>
             <input type="text" required name="numAdresse" id="numAdresse" placeholder="Numéro Adresse"/>
             
