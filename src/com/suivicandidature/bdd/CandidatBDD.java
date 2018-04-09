@@ -22,7 +22,7 @@ public class CandidatBDD {
 	 * @param page String utilise dans le Switch..Case
 	 * @param urlData1 Premier parametre a destination des requetes SQL
 	 * @param urlData2 Second parametre a destination des requetes SQL
-	 * @return
+	 * @return objet candidat
 	 */
     // urlData1 est facultatif, si vous n'avez aucune info a récupérer mettre la valeur à 0
     public List<Candidat> recupererCandidat(String page, String urlData1, String urlData2) {

@@ -33,7 +33,7 @@ public class Candidat {
 	 * @param statut = statut du candidat ("Accepte", "Refuse", "En attente")
 	 * @param dateRDVEntretien = date de rendez-vous du prochain entretien avec le candidat
 	 * @param heureRDVEntretien = heure de rendez-vous du prochain entretien avec le candidat
-	 * @param demarrageFormation = semestre de demarrage du candidat après acceptation (format Semestre/Annee -> SXX/XXXX)
+	 * @param demarrageFormation = semestre de demarrage du candidat après acceptation (format Semestre/Annee SXX/XXXX)
 	 * @param dateCreation = Date de creation de la fiche du candidat
 	 * @param dateMaj = Date de dernière mise à jour de la fiche candidat
 	 */
@@ -73,7 +73,7 @@ public class Candidat {
 	
 	/**
 	 * 
-	 * @param Identifiant de l'etudiant
+	 * @param idEtudiant Identifiant de l'etudiant
 	 */
 	public void setIdEtudiant(int idEtudiant) {
 		this.idEtudiant = idEtudiant;
@@ -91,7 +91,7 @@ public class Candidat {
 	
 	/**
 	 * 
-	 * @param Identifiant du prof referent
+	 * @param idProfReferent Identifiant du prof referent
 	 */
 	public void setIdProfReferent(int idProfReferent) {
 		this.idProfReferent = idProfReferent;
@@ -109,7 +109,7 @@ public class Candidat {
 	
 	/**
 	 * 
-	 * @param Nom du candidat
+	 * @param nom Nom du candidat
 	 */
 	public void setNom(String nom) {
 		this.nom = nom;
@@ -127,7 +127,7 @@ public class Candidat {
 	
 	/**
 	 * 
-	 * @param Prenom du candidat
+	 * @param prenom Prenom du candidat
 	 */
 	public void setPrenom(String prenom) {
 		this.prenom = prenom;
@@ -145,7 +145,7 @@ public class Candidat {
 	
 	/**
 	 * 
-	 * @param Date de naissance du candidat
+	 * @param dateNaissance Date de naissance du candidat
 	 */
 	public void setDateNaissance(String dateNaissance) {
 		this.dateNaissance = dateNaissance;
@@ -163,7 +163,7 @@ public class Candidat {
 	
 	/**
 	 * 
-	 * @param Adresse mail du candidat
+	 * @param mail Adresse mail du candidat
 	 */
 	public void setMail(String mail) {
 		this.mail = mail;
@@ -181,7 +181,7 @@ public class Candidat {
 	
 	/**
 	 * 
-	 * @param Numero de telephone du candidat
+	 * @param tel Numero de telephone du candidat
 	 */
 	public void setTel(String tel) {
 		this.tel = tel;
@@ -199,7 +199,7 @@ public class Candidat {
 	
 	/**
 	 * 
-	 * @param Numero d'adresse du candidat
+	 * @param numAdresse Numero d'adresse du candidat
 	 */
 	public void setNumAdresse(int numAdresse) {
 		this.numAdresse = numAdresse;
@@ -217,7 +217,7 @@ public class Candidat {
 	
 	/**
 	 * 
-	 * @param Rue du candidat
+	 * @param rueAdresse Rue du candidat
 	 */
 	public void setRueAdresse(String rueAdresse) {
 		this.rueAdresse = rueAdresse;
@@ -235,7 +235,7 @@ public class Candidat {
 	
 	/**
 	 * 
-	 * @param Complement d'adresse du candidat
+	 * @param compAdresse Complement d'adresse du candidat
 	 */
 	public void setCompAdresse(String compAdresse) {
 		this.compAdresse = compAdresse;
@@ -253,7 +253,7 @@ public class Candidat {
 	
 	/**
 	 * 
-	 * @param Code postal du candidat
+	 * @param cpAdresse Code postal du candidat
 	 */
 	public void setCpAdresse(String cpAdresse) {
 		this.cpAdresse = cpAdresse;
@@ -271,7 +271,7 @@ public class Candidat {
 	
 	/**
 	 * 
-	 * @param Ville d'habitation du candidat
+	 * @param villeAdresse Ville d'habitation du candidat
 	 */
 	public void setVilleAdresse(String villeAdresse) {
 		this.villeAdresse = villeAdresse;
@@ -289,7 +289,7 @@ public class Candidat {
 	
 	/**
 	 * 
-	 * @param Statut du candidat ("Accepte", "Refuse", "En attente")
+	 * @param statut Statut du candidat ("Accepte", "Refuse", "En attente")
 	 */
 	public void setStatut(String statut) {
 		this.statut = statut;
@@ -325,7 +325,7 @@ public class Candidat {
 	
 	/**
 	 * 
-	 * @param Heure de rendez-vous du prochain entretien
+	 * @param heureRDVEntretien Heure de rendez-vous du prochain entretien
 	 */
 	public void setHeureRDVEntretien(String heureRDVEntretien) {
 		this.heureRDVEntretien = heureRDVEntretien;
@@ -343,7 +343,7 @@ public class Candidat {
 	
 	/**
 	 * 
-	 * @param Date de rendez-vous du prochain entretien
+	 * @param dateRDVEntretien Date de rendez-vous du prochain entretien
 	 */
 	public void setDateRDVEntretien(String dateRDVEntretien) {
 		this.dateRDVEntretien = dateRDVEntretien;
@@ -352,7 +352,7 @@ public class Candidat {
 	
 	/**
 	 * Methode permettant de recuperer la date de creation de la fiche etudiant
-	 * @return date de creation de la fiche etudiant
+	 * @return Date de creation de la fiche etudiant
 	 */
 	public Date getDateCreation() {
 		return dateCreation;
@@ -361,7 +361,7 @@ public class Candidat {
 	
 	/**
 	 * 
-	 * @param Date de creation de la fiche etudiant
+	 * @param dateCreation Date de creation de la fiche etudiant
 	 */
 	public void setDateCreation(Date dateCreation) {
 		this.dateCreation = dateCreation;
@@ -379,7 +379,7 @@ public class Candidat {
 	
 	/**
 	 * Methode permettant de definir la date de dernière mise à jour du candidat
-	 * @param dateMaj (nouvelle date de dernière mise à jour de la fiche etudiant)
+	 * @param dateMaj date de mise a joutcandidat(nouvelle date de dernière mise à jour de la fiche candidat)
 	 */
 	public void setDateMaj(Date dateMaj) {
 		this.dateMaj = dateMaj;

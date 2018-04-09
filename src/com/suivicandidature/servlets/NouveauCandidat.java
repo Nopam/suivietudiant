@@ -15,7 +15,7 @@ public class NouveauCandidat extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * Méthode permettant de récupérer les données de la JSP Candidatures en méthode doGet
+	 * Méthode permettant de récupérer les données de la JSP nouveaucandidat en méthode doGet
 	 * Cette méthode permet également de faire appel à la méthode de CandidatBDD permettant de requêter la BDD
 	 */
 	public void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException{
@@ -24,7 +24,7 @@ public class NouveauCandidat extends HttpServlet {
 	}
 	
 	/**
-	 * Méthode permettant de récupérer les données de la JSP Candidatures en méthode doPost
+	 * Méthode permettant de récupérer les données de la JSP nouveaucandidat en méthode doPost
 	 * Cette méthode permet également de faire appel à la méthode de CandidatBDD permettant de requêter la BDD
 	 */
 	public void doPost( HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

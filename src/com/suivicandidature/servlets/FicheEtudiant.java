@@ -15,7 +15,11 @@ import com.suivicandidature.classes.*;
 public class FicheEtudiant extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	Candidat e1 = new Candidat();
-
+	
+	/**
+	 * Méthode permettant de récupérer les données de la JSP ficheetudiant en méthode doGet
+	 * Cette méthode permet également de faire appel à la méthode de CandidatBDD permettant de requêter la BDD
+	 */
 	public void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException{
 		
 		CandidatBDD listeCandidat = new CandidatBDD();
@@ -27,11 +31,15 @@ public class FicheEtudiant extends HttpServlet {
 
 	}
 	
+	/**
+	 * Méthode permettant de récupérer les données de la JSP ficheetudiant en méthode doGet
+	 * Cette méthode permet également de faire appel à la méthode de CandidatBDD permettant de requêter la BDD
+	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 			 throws ServletException, IOException { 
 		this.getServletContext().getRequestDispatcher( "/WEB-INF/vues/ficheEtudiant.jsp" ).forward( request, response );
 
-			
+			//Récupération des données de la jsp
 			 String nom = request.getParameter("name");
 			 String prenom = request.getParameter("surname");
 			 String dateNaissance = "3";
@@ -39,7 +47,7 @@ public class FicheEtudiant extends HttpServlet {
 			 String tel = request.getParameter("tel");
 			 String statut = request.getParameter("statut");
 			 
-			 
+			 //Redéfinition de l'objet étudiant
 			 e1.setNom(nom);
 			 e1.setPrenom(prenom);
 			 e1.setDateNaissance(dateNaissance);
@@ -48,7 +56,7 @@ public class FicheEtudiant extends HttpServlet {
 			 e1.setStatut(statut);
 			 
 			 
-			 
+			 //test
 			 System.out.println(e1);;
 			 
 			 
