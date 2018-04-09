@@ -151,6 +151,5 @@ public void ajouterCandidat(Candidat candidat ) {
 		e.printStackTrace();
 	}
 }
-	
 }
 	
