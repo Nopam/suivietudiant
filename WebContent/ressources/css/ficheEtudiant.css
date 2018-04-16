@@ -51,7 +51,7 @@ div#menu .active {
 div#central {
 	margin: 1em;
 	width: 100%;
-	display:inline-block;
+	display:inline-flex;
 }
 
 div#central div#piecesJointes{
