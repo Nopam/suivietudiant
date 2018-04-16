@@ -24,7 +24,7 @@
 				<li class="onRight"><a href="monprofil">Mon profil</a></li>
 			</ul>
 		</div>
-        <p>Bienvenue sur la JSP "Accueil" ! :)</p>
+       
              
 <form method="get" action="accueil" id = "formulaire">
 
