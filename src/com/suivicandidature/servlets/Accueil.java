@@ -34,10 +34,10 @@ public class Accueil extends HttpServlet {
     	
     	//Parametre pour trier (non fonctionnel à ce jour)
     	String formTri = request.getParameter("selectTriAccueil");
-    	
+    	String orderBy = (formTri.length() < 1) ? "" : (" ORDER BY " + formTri);
     	
 		CandidatBDD tableCandidat = new CandidatBDD();
-		request.setAttribute("candidats", tableCandidat.recupererCandidat("accueil", formFiltreNom, formTri));
+		request.setAttribute("candidats", tableCandidat.recupererCandidat("accueil", formFiltreNom, orderBy));
 		
 		this.getServletContext().getRequestDispatcher( "/WEB-INF/vues/accueil.jsp" ).forward( request, response );
 	}

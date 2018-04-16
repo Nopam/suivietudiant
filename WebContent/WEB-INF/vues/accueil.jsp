@@ -35,8 +35,8 @@
     	<option value="">Trier</option>
   		<option value="nomEtudiant">Nom</option>
   		<option value="prenomEtudiant">Prenom</option>
-	  	<option value="dateRDVEntretien">Date de RDV</option>
-	  	<option value="semestreDemarrage">Semestre de démarrage</option>
+	  	<option value="dateRDVEntretienEtudiant">Date de RDV</option>
+	  	<option value="DemarrageFormationEtudiant">Semestre de démarrage</option>
 	</select>
 
             <input type="submit" class="button"/>

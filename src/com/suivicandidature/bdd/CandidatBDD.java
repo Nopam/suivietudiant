@@ -41,11 +41,17 @@ public class CandidatBDD {
             
             //Requête de récupération des données étudiant depuis l'accueil
             case "accueil" :
-            	PreparedStatement preparedStatementAccueil = connexion.prepareStatement("SELECT idEtudiant, nomEtudiant, prenomEtudiant, dateNaissanceEtudiant, villeAdresseEtudiant, statutEtudiant, dateRDVEntretienEtudiant, heureRDVEntretienEtudiant, demarrageFormationEtudiant FROM etudiants WHERE concat(nomEtudiant, ' ', prenomEtudiant) like ? OR concat(prenomEtudiant, ' ', nomEtudiant) like ? order by ? limit 10	;");
+            	String requete = ("SELECT idEtudiant, nomEtudiant, prenomEtudiant, dateNaissanceEtudiant, villeAdresseEtudiant, statutEtudiant, dateRDVEntretienEtudiant, heureRDVEntretienEtudiant, demarrageFormationEtudiant FROM etudiants WHERE concat(nomEtudiant, ' ', prenomEtudiant) like ? OR concat(prenomEtudiant, ' ', nomEtudiant) like ? " + urlData2 + " limit 10;");
+            	//PreparedStatement preparedStatementAccueil = connexion.prepareStatement("SELECT idEtudiant, nomEtudiant, prenomEtudiant, dateNaissanceEtudiant, villeAdresseEtudiant, statutEtudiant, dateRDVEntretienEtudiant, heureRDVEntretienEtudiant, demarrageFormationEtudiant FROM etudiants WHERE concat(nomEtudiant, ' ', prenomEtudiant) like ? OR concat(prenomEtudiant, ' ', nomEtudiant) like ? order by ? limit 10;");
+            	PreparedStatement preparedStatementAccueil = connexion.prepareStatement(requete);
             	preparedStatementAccueil.setString(1, urlData1);
             	preparedStatementAccueil.setString(2, urlData1);
-            	preparedStatementAccueil.setString(3, urlData2);
+            	//preparedStatementAccueil.setString(3, urlData2);
             	resultat = preparedStatementAccueil.executeQuery();
+            	System.out.println("urlData1 : " + urlData1);
+            	System.out.println("UrlData2 : " + urlData2);
+            	System.out.println(preparedStatementAccueil.toString());
+            	//System.out.println(requete);
                 break;
                 
             //Requête de récupération des données étudiant depuis la fiche étudiant  
