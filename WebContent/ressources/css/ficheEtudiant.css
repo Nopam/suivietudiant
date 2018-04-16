@@ -72,9 +72,6 @@ div#central div#piecesJointes img{
 }
 
 div#central div#ficheEtudiant{
-	-webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-	-moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-	box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
 	padding: 10px;
 	margin-left: 0px;
 	font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
