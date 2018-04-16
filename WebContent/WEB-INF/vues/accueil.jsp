@@ -39,7 +39,7 @@
 	  	<option value="semestreDemarrage">Semestre de démarrage</option>
 	</select>
 
-            <input type="submit" />
+            <input type="submit" class="button"/>
         </form>
         
 <!-- <input type="text" id="inputPrenom" onkeyup="inputFilterPrenom()" placeholder="Prénom" title="Tapez un prénom">

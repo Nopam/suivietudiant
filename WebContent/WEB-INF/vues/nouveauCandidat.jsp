@@ -45,7 +45,7 @@
             
             <input type="text" required name="villeAdresse" id="villeAdresse" placeholder="Ville"/>
           </div>
-        <input type="submit" />
+        <input type="submit" class="button"/>
         
     </form>
     

@@ -20,11 +20,16 @@
 		</div>
        	<div id="central">
 			<div id="piecesJointes"> <!-- Partie pièce jointes/photos pour Lahlou -->
+			
+			
 			<c:forEach var="candidat" items="${ candidats[1] }">
 				<img src="ressources/Photos/${ candidat.photoEtudiant }" alt="Photo non disponible">
-				<a href="ressources/CV/${ candidat.cvEtudiant }"><input type="button" value="Afficher CV" /></a>
-				<a href="ressources/LM/${ candidat.lettreMotivationEtudiant }"><input type="button" value="Afficher LM" /></a>
+				<div class="download_pj">
+				<a href="ressources/CV/${ candidat.cvEtudiant }"><input type="button" value="Afficher CV" class="button"/></a>
+				<a href="ressources/LM/${ candidat.lettreMotivationEtudiant }"><input type="button" class="button" value="Afficher LM" /></a>
+				</div>
 			</c:forEach>	
+			
 			</div>
 			<div id="ficheEtudiant">
 			
@@ -74,6 +79,8 @@
 				<input type="number" value="${ candidat.tel }" name="tel" class="inputInfos" oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" maxlength="10"><br />
 				</div>
 				
+				<hr />
+				
 				<div class="textLine">
 				<label for="numRue">Numéro de rue: </label>
 				<span id="numRue" class="showInfos">
@@ -105,6 +112,8 @@
 				</span>
 				<input type="text" value="${ candidat.villeAdresse }" name="ville" class="inputInfos"><br />
 				</div>
+				
+				<hr />
 				
 				<div class="textLine">	
 				<label for="studentStatut">Statut: </label>
