@@ -57,7 +57,7 @@
 						<th>Date d'entretien</th>
 						<th>Semestre de démarrage</th>
 					</tr>
-		        <c:forEach var="candidat" items="${ candidats }">
+		        <c:forEach var="candidat" items="${ candidats[0] }">
 		            <tr onclick="document.location='ficheEtudiant?id=${ candidat.idEtudiant }'"> <!-- Lien vers la fiche étudiant -->
 		            	<!--<td style=hidden><c:out value="${ candidat.prenom } ${ candidat.nom }"/></td>-->
 		            	<td><c:out value="${ candidat.prenom }" /></td>

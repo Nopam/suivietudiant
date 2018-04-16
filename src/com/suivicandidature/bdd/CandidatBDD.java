@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.suivicandidature.beans.Candidat;
+import com.suivicandidature.beans.Ressources;
 
 import java.util.Date;
 
@@ -25,8 +26,9 @@ public class CandidatBDD {
 	 * @return objet candidat
 	 */
     // urlData1 est facultatif, si vous n'avez aucune info a récupérer mettre la valeur à 0
-    public List<Candidat> recupererCandidat(String page, String urlData1, String urlData2) {
+	public Object[] recupererCandidat(String page, String urlData1, String urlData2) {
         List<Candidat> candidats = new ArrayList<Candidat>();
+        List<Ressources> ressources = new ArrayList<Ressources>();
         Statement statement = null;
         String query;
         ResultSet resultat = null;
@@ -48,7 +50,7 @@ public class CandidatBDD {
                 
             //Requête de récupération des données étudiant depuis la fiche étudiant  
             case "ficheEtudiant" : 
-                PreparedStatement preparedStatement = connexion.prepareStatement("SELECT idEtudiant, nomEtudiant, prenomEtudiant, mailEtudiant, telEtudiant, dateNaissanceEtudiant, numAdresseEtudiant, rueAdresseEtudiant, villeAdresseEtudiant, cpAdresseEtudiant, statutEtudiant, dateRDVEntretienEtudiant, heureRDVEntretienEtudiant, demarrageFormationEtudiant FROM etudiants WHERE idEtudiant = ?;");
+                PreparedStatement preparedStatement = connexion.prepareStatement("SELECT etudiants.idEtudiant, nomEtudiant, prenomEtudiant, mailEtudiant, telEtudiant, dateNaissanceEtudiant, numAdresseEtudiant, rueAdresseEtudiant, villeAdresseEtudiant, cpAdresseEtudiant, statutEtudiant, dateRDVEntretienEtudiant, heureRDVEntretienEtudiant, demarrageFormationEtudiant, cvEtudiant, lettreMotivationEtudiant,photoEtudiant FROM etudiants, ressources WHERE etudiants.idEtudiant = ? And etudiants.idEtudiant = ressources.idEtudiant;");
                 preparedStatement.setString(1, urlData1);
                 resultat = preparedStatement.executeQuery();
                 break;
@@ -76,6 +78,8 @@ public class CandidatBDD {
                 String demarrageFormation = resultat.getString("demarrageFormationEtudiant");
                 
                 Candidat candidat = new Candidat();
+                Ressources ressource= new Ressources();
+                
                 candidat.setNom(nom);
                 candidat.setPrenom(prenom);
                 candidat.setDateNaissance(dateNaissance);
@@ -92,17 +96,30 @@ public class CandidatBDD {
                      int numAdresse = resultat.getInt("numAdresseEtudiant");
                      String rueAdresse = resultat.getString("rueAdresseEtudiant");
                      String cpAdresse = resultat.getString("cpAdresseEtudiant");
+
+                     
+                     String photoEtudiant =resultat.getString("photoEtudiant");
+                     String cvEtudiant=resultat.getString("cvEtudiant");
+                     String lettreMotivationEtudiant=resultat.getString("lettreMotivationEtudiant");
+                     
+                     ressource.setIdEtudiant(idEtudiant);
+                     ressource.setCvEtudiant(cvEtudiant);
+                     ressource.setLettreMotivationEtudiant(lettreMotivationEtudiant);
+                     ressource.setPhotoEtudiant(photoEtudiant);
                      
                      candidat.setMail(mail);
                      candidat.setTel(tel);
                      candidat.setNumAdresse(numAdresse);
                      candidat.setRueAdresse(rueAdresse);
                      candidat.setCpAdresse(cpAdresse);
+                     
+                     
                     System.out.println("cp: " + cpAdresse);
                 }
                 
 				
                 candidats.add(candidat);
+                ressources.add(ressource);
 			
             }
 		} catch (SQLException e) {
@@ -119,9 +136,10 @@ public class CandidatBDD {
 						
 					}
 			}
-			return candidats;
+        Object obj[] = {candidats,ressources};	
+        return obj;
 	}
-	
+
     /**
      * Connexion a la base de données MySQL
      */

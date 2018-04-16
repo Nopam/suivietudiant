@@ -20,14 +20,18 @@
 		</div>
        	<div id="central">
 			<div id="piecesJointes"> <!-- Partie pièce jointes/photos pour Lahlou -->
-	
+			<c:forEach var="candidat" items="${ candidats[1] }">
+				<img src="ressources/Photos/${ candidat.photoEtudiant }" alt="Photo non disponible">
+				<a href="ressources/CV/${ candidat.cvEtudiant }"><input type="button" value="Afficher CV" /></a>
+				<a href="ressources/LM/${ candidat.lettreMotivationEtudiant }"><input type="button" value="Afficher LM" /></a>
+			</c:forEach>	
 			</div>
 			<div id="ficheEtudiant">
 			
 			
 			
 			
-			<c:forEach var="candidat" items="${ candidats }">
+			<c:forEach var="candidat" items="${ candidats[0] }">
 			<form action="accueil?inputSearchAccueil=&selectTriAccueil=" method="POST">
 			
 				<div class="textLine">
@@ -124,5 +128,3 @@
 			</div>			
     </body>
 </html>
-
-t
