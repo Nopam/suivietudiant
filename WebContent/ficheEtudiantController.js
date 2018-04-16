@@ -2,13 +2,6 @@
  * 
  */
 
-
-
-function updateInfos(){
-	
-
-}
-
 // Lorsqu'on clique sur "modifier" on actualise le contenu
 let modifInProgress = function(){
 	$('.showInfos').hide();

@@ -7,7 +7,7 @@
     <head>
         <meta charset="utf-8" />
         <title>Accueil</title>
-        <link rel="stylesheet" href="ressources/css/style.css" />
+        <link rel="stylesheet" href="ressources/css/accueil.css" />
         <script type="text/javascript" src="ressources/js/ajaxInputOnTable.js"></script>
         <script>
         	function validerForm(){
@@ -29,7 +29,7 @@
 <form method="get" action="accueil" id = "formulaire">
 
     <label for="nom">Nom : </label>
-    <input onKeyPress="if(event.keyCode == 13) validerForm();" type="text" id="inputSearchAccueil" name = "inputSearchAccueil" placeholder="Cherchez un étudiant" title="Cherchez un étudiant"/>
+    <input onKeyPress="if(event.keyCode == 13) validerForm();" type="text" id="inputSearchAccueil" name="inputSearchAccueil" placeholder="Cherchez un étudiant" title="Cherchez un étudiant"/>
     
     <select id="selectTriAccueil" name = "selectTriAccueil">
     	<option value="">Trier</option>

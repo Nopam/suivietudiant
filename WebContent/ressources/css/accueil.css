@@ -46,7 +46,9 @@ div#menu .active {
 
 
 /*------------------------- Style des inputs  ------------------------------*/
-
+form{
+	margin: 1%;
+}
 #inputSearchAccueil {
 	background-image: url("ressources/img/search-icon.png");
 	background-position: 10px 10px;
