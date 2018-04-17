@@ -41,6 +41,7 @@ public class FicheEtudiant extends HttpServlet {
 			 throws ServletException, IOException { 
 		this.getServletContext().getRequestDispatcher( "/WEB-INF/vues/ficheEtudiant.jsp" ).forward( request, response );
 
+			request.setCharacterEncoding("UTF-8");
 			//Récupération des données renseigner dans la page web
 			 int id = Integer.parseInt(request.getParameter("id"));
 			 String nom = request.getParameter("name");

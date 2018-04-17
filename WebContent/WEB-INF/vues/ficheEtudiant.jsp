@@ -62,7 +62,7 @@
 				<span id="studentAge" class="showInfos">
 				<c:out value="${ candidat.dateNaissance }" />
 				</span>
-				<input type="text" value="${ candidat.dateNaissance }" name="date" class="inputInfos"><br />
+				<input type="date" value="${ candidat.dateNaissance }" name="date" class="inputInfos"><br />
 				</div>
 				
 				<div class="textLine">
