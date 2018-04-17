@@ -6,7 +6,7 @@
         <meta charset="utf-8" />
         <title>Fiche Etudiant</title>
         <link rel="stylesheet" href="ressources/css/ficheEtudiant.css" />
-        <script type="text/javascript" src="ficheEtudiantController.js"></script>
+        <script type="text/javascript" src="ressources/js/ficheEtudiant.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     </head>
 
