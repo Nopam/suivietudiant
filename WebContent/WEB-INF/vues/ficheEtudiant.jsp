@@ -11,6 +11,7 @@
     </head>
 
     <body onload="validate()">
+    
 		<div id="menu">
 	    	<ul>
 	  			<li><a href="accueil?inputSearchAccueil=&selectTriAccueil=">Accueil</a></li>
@@ -19,14 +20,15 @@
 			</ul>
 		</div>
        	<div id="central">
+       	<span id="serverResponse" style="display: ${reponse }"><img src="ressources/img/validated.png" height="100px" width="100px"></span>
 			<div id="piecesJointes"> <!-- Partie pièce jointes/photos pour Lahlou -->
 			
 			
 			<c:forEach var="candidat" items="${ candidats[1] }">
 				<img src="ressources/Photos/${ candidat.photoEtudiant }" alt="Photo non disponible">
 				<div class="download_pj">
-				<a href="ressources/CV/${ candidat.cvEtudiant }"><input type="button" value="Afficher CV" class="button"/></a>
-				<a href="ressources/LM/${ candidat.lettreMotivationEtudiant }"><input type="button" class="button" value="Afficher LM" /></a>
+				<a href="ressources/CV/${ candidat.cvEtudiant }"><input type="button" value=" CV " class="button"/></a>
+				<a href="ressources/LM/${ candidat.lettreMotivationEtudiant }"><input type="button" class="button" value=" Lettre " /></a>
 				</div>
 			</c:forEach>	
 			
@@ -37,8 +39,8 @@
 			
 			
 			<c:forEach var="candidat" items="${ candidats[0] }">
-			<form action="accueil?inputSearchAccueil=&selectTriAccueil=" method="POST">
-			
+			<form action="ficheEtudiant" method="POST">
+			<input type="hidden" name="id" value="${candidat.idEtudiant}">
 				<div class="textLine">
 				<label for="studentName">Nom: </label>
 				<span id="studentName" class="showInfos">
@@ -115,25 +117,50 @@
 				
 				<hr />
 				
+				<div class="textLine">
+				<label for="dateRDVEntretien">Date de Rendez-vous: </label>
+				<span id="dateRDVEntretien" class="showInfos">
+				<c:out value="${ candidat.dateRDVEntretien } à ${candidat.heureRDVEntretien }" />
+				</span>
+				<input type="text" value="${ candidat.dateRDVEntretien }" name="dateRDVEntretien" class="inputInfos"><br />
+				</div>
+				
+				<div class="textLine inputInfos">
+				<label for="heureRDVEntretien">Heure de Rendez-vous: </label>
+				<input type="text" value="${ candidat.heureRDVEntretien }" name="heureRDVEntretien" class="inputInfos"><br />
+				</div>
+				
 				<div class="textLine">	
 				<label for="studentStatut">Statut: </label>
 				<span id="statut" class="showInfos">
 				<c:out value="${ candidat.statut }" />
 				</span>
-					<select id="studentStatut" class="inputInfos">
+					<select id="studentStatut" name="studentStatut" class="inputInfos">
 					  <option value="toCheck">A consulter</option> 
 					  <option value="refused" >Refusé</option>
 					  <option value="accepted" >Accepté</option>
 					  <option value="inProgress">En cours</option>
 					</select><br />
 				</div>
+
+				<div class="textLine">
+				<label for="demarrage">Premier semestre: </label>
+				<span id="demarrage" class="showInfos">
+				<c:out value="${ candidat.demarrageFormation }" />
+				</span>
+				<input type="text" value="${ candidat.demarrageFormation }" name="demarrage" class="inputInfos"><br />
+				</div>
+				
 				
 					<input  type="submit" value="Valider" class="inputInfos button" onclick="validate()">
 					<input class="showInfos button" value="Modifier" onclick="modifInProgress()">
 					
 				</form>
+				
 				</c:forEach>
 				</div>
+				
+				
 			</div>			
     </body>
 </html>

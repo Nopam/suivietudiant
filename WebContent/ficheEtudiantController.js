@@ -13,4 +13,6 @@ let modifInProgress = function(){
 let validate = function(){
 	$('.inputInfos').hide();
 	$('.showInfos').show();
+
 }
+

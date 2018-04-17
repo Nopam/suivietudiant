@@ -164,29 +164,55 @@ public class CandidatBDD {
 			}
 	}
 
-/**
- * Insertion d'objet "Candidat" dans la base de donnees
- * @param candidat Objet candidat
- */
-public void ajouterCandidat(Candidat candidat ) {
-	loadDatabase();
-	try {
-		PreparedStatement preparedStatement = connexion.prepareStatement("INSERT INTO etudiants(nomEtudiant, prenomEtudiant, dateNaissanceEtudiant, mailEtudiant, telEtudiant, numAdresseEtudiant, rueAdresseEtudiant, compAdresseEtudiant, cpAdresseEtudiant, villeAdresseEtudiant) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?);");
-		preparedStatement.setString(1, candidat.getNom());
-		preparedStatement.setString(2, candidat.getPrenom());
-		preparedStatement.setString(3, candidat.getDateNaissance());
-		preparedStatement.setString(4, candidat.getMail());
-		preparedStatement.setString(5, candidat.getTel());
-		preparedStatement.setInt(6, candidat.getNumAdresse());
-		preparedStatement.setString(7, candidat.getRueAdresse());
-		preparedStatement.setString(8, candidat.getCompAdresse());
-		preparedStatement.setString(9, candidat.getCpAdresse());
-		preparedStatement.setString(10, candidat.getVilleAdresse());
-
-		preparedStatement.executeUpdate();
-	} catch (SQLException e) {
-		e.printStackTrace();
+	/**
+	 * Insertion d'objet "Candidat" dans la base de donnees
+	 * @param candidat Objet candidat
+	 */
+	public void ajouterCandidat(Candidat candidat ) {
+		loadDatabase();
+		try {
+			PreparedStatement preparedStatement = connexion.prepareStatement("INSERT INTO etudiants(nomEtudiant, prenomEtudiant, dateNaissanceEtudiant, mailEtudiant, telEtudiant, numAdresseEtudiant, rueAdresseEtudiant, compAdresseEtudiant, cpAdresseEtudiant, villeAdresseEtudiant) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?);");
+			preparedStatement.setString(1, candidat.getNom());
+			preparedStatement.setString(2, candidat.getPrenom());
+			preparedStatement.setString(3, candidat.getDateNaissance());
+			preparedStatement.setString(4, candidat.getMail());
+			preparedStatement.setString(5, candidat.getTel());
+			preparedStatement.setInt(6, candidat.getNumAdresse());
+			preparedStatement.setString(7, candidat.getRueAdresse());
+			preparedStatement.setString(8, candidat.getCompAdresse());
+			preparedStatement.setString(9, candidat.getCpAdresse());
+			preparedStatement.setString(10, candidat.getVilleAdresse());
+	
+			preparedStatement.executeUpdate();
+		} catch (SQLException e) {
+			System.out.println("CREATION CANDIDAT : Connexion à la base de donnée impossible");
+		}
 	}
-}
+	
+	public void modifierCandidat(Candidat candidat ) {
+		loadDatabase();
+		try {
+			PreparedStatement preparedStatement = connexion.prepareStatement("UPDATE etudiants SET nomEtudiant = ?, prenomEtudiant = ?, dateNaissanceEtudiant = ?, mailEtudiant = ?, telEtudiant = ?, numAdresseEtudiant = ?, rueAdresseEtudiant = ?, cpAdresseEtudiant = ?, villeAdresseEtudiant = ?, dateRDVEntretienEtudiant = ?, heureRDVEntretienEtudiant = ?, statutEtudiant = ?, demarrageFormationEtudiant = ? WHERE idEtudiant = ? ;");
+			preparedStatement.setString(1, candidat.getNom());
+			preparedStatement.setString(2, candidat.getPrenom());
+			preparedStatement.setString(3, candidat.getDateNaissance());
+			preparedStatement.setString(4, candidat.getMail());
+			preparedStatement.setString(5, candidat.getTel());
+			preparedStatement.setInt(6, candidat.getNumAdresse());
+			preparedStatement.setString(7, candidat.getRueAdresse());
+			preparedStatement.setString(8, candidat.getCpAdresse());
+			preparedStatement.setString(9, candidat.getVilleAdresse());
+			preparedStatement.setString(10, candidat.getDateRDVEntretien());
+			preparedStatement.setString(11, candidat.getHeureRDVEntretien());
+			preparedStatement.setString(12, candidat.getStatut());
+			preparedStatement.setString(13, candidat.getDemarrageFormation());
+			preparedStatement.setInt(14, candidat.getIdEtudiant());
+			System.out.println("Show  " + preparedStatement.toString());
+			preparedStatement.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			System.out.println("UPDATE : Connexion à la base de donnée impossible");
+		}
+	}
 }
 	

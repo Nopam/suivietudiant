@@ -15,6 +15,7 @@ import com.suivicandidature.classes.*;
 public class FicheEtudiant extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	Candidat e1 = new Candidat();
+
 	
 	/**
 	 * Méthode permettant de récupérer les données de la JSP ficheetudiant en méthode doGet
@@ -23,12 +24,13 @@ public class FicheEtudiant extends HttpServlet {
 	public void doGet( HttpServletRequest request, HttpServletResponse response ) throws ServletException, IOException{
 		
 		CandidatBDD listeCandidat = new CandidatBDD();
-		// J'ai ajouté un 3eme param vide 
 		request.setAttribute("candidats", listeCandidat.recupererCandidat("ficheEtudiant", request.getParameter("id"), ""));
 		
-		
+		 // Cacher l'image puisqu'on vient en GET seulement depuis la page d'accueil
+		 request.setAttribute("reponse", "none");
+		 
 		this.getServletContext().getRequestDispatcher( "/WEB-INF/vues/ficheEtudiant.jsp" ).forward( request, response );
-
+	
 	}
 	
 	/**
@@ -39,25 +41,47 @@ public class FicheEtudiant extends HttpServlet {
 			 throws ServletException, IOException { 
 		this.getServletContext().getRequestDispatcher( "/WEB-INF/vues/ficheEtudiant.jsp" ).forward( request, response );
 
-			//Récupération des données de la jsp
+			//Récupération des données renseigner dans la page web
+			 int id = Integer.parseInt(request.getParameter("id"));
 			 String nom = request.getParameter("name");
 			 String prenom = request.getParameter("surname");
-			 String dateNaissance = "3";
+			 String dateNaissance = request.getParameter("date");
 			 String mail = request.getParameter("mail");
 			 String tel = request.getParameter("tel");
-			 String statut = request.getParameter("statut");
+			 String statut = request.getParameter("studentStatut");
+			 int numAdresse = Integer.parseInt(request.getParameter("num_rue"));
+			 String rueAdresse = request.getParameter("rue");
+			 String cpAdresse = request.getParameter("cp");
+			 String villeAdresse = request.getParameter("ville");
+			 String dateRDVEntretien = request.getParameter("dateRDVEntretien");
+			 String heureRDVEntretien = request.getParameter("heureRDVEntretien");
+			 String demarrageFormation = request.getParameter("demarrage");
+					
 			 
-			 //Redéfinition de l'objet étudiant
+			 e1.setIdEtudiant(id);
 			 e1.setNom(nom);
 			 e1.setPrenom(prenom);
 			 e1.setDateNaissance(dateNaissance);
 			 e1.setMail(mail);
 			 e1.setTel(tel);
+			 e1.setNumAdresse(numAdresse);
+			 e1.setRueAdresse(rueAdresse);
+			 e1.setCpAdresse(cpAdresse);
+			 e1.setVilleAdresse(villeAdresse);
+			 e1.setDateRDVEntretien(dateRDVEntretien);
+			 e1.setHeureRDVEntretien(heureRDVEntretien);
 			 e1.setStatut(statut);
+			 e1.setDemarrageFormation(demarrageFormation);
 			 
 			 
+			 
+			CandidatBDD updateCandidat = new CandidatBDD();
+			updateCandidat.modifierCandidat(e1);
+				
 			 //test
-			 System.out.println(e1);;
+			 System.out.println( "Prenom " + e1.getPrenom());
+			 request.setAttribute("reponse", "run-in");
+
 			 
 			 
 			}
