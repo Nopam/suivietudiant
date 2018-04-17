@@ -136,10 +136,10 @@
 				<c:out value="${ candidat.statut }" />
 				</span>
 					<select id="studentStatut" name="studentStatut" class="inputInfos">
-					  <option value="toCheck">A consulter</option> 
-					  <option value="refused" >Refusé</option>
-					  <option value="accepted" >Accepté</option>
-					  <option value="inProgress">En cours</option>
+					  <option value="A consulter">A consulter</option> 
+					  <option value="Refusé" >Refusé</option>
+					  <option value="Accepté" >Accepté</option>
+					  <option value="En cours">En cours</option>
 					</select><br />
 				</div>
 

@@ -12,7 +12,7 @@ import java.util.List;
 import com.suivicandidature.beans.Candidat;
 import com.suivicandidature.beans.Ressources;
 
-import java.util.Date;
+//import java.util.Date;
 
 public class CandidatBDD {
 
@@ -30,7 +30,7 @@ public class CandidatBDD {
         List<Candidat> candidats = new ArrayList<Candidat>();
         List<Ressources> ressources = new ArrayList<Ressources>();
         Statement statement = null;
-        String query;
+        //String query;
         ResultSet resultat = null;
 
         loadDatabase();

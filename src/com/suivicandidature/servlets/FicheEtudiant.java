@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.suivicandidature.bdd.CandidatBDD;
 import com.suivicandidature.beans.Candidat;
-import com.suivicandidature.classes.*;
+//import com.suivicandidature.classes.*;
 
 public class FicheEtudiant extends HttpServlet {
 	private static final long serialVersionUID = 1L;

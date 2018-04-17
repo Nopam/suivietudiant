@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.suivicandidature.bdd.CandidatBDD;
-import com.suivicandidature.beans.Candidat;
+//import com.suivicandidature.beans.Candidat;
 
 public class Accueil extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -33,8 +33,8 @@ public class Accueil extends HttpServlet {
     	String formFiltreNom = ("%"+request.getParameter("inputSearchAccueil")+"%");
     	
     	//Parametre pour trier (non fonctionnel à ce jour)
-    	String formTri = request.getParameter("selectTriAccueil");
-    	String orderBy = (formTri.length() < 1) ? "" : (" ORDER BY " + formTri);
+    	String formTri = (request.getParameter("selectTriAccueil")+ " ");
+    	String orderBy = (formTri.length() < 2) ? "" : (" ORDER BY " + formTri);
     	
 		CandidatBDD tableCandidat = new CandidatBDD();
 		request.setAttribute("candidats", tableCandidat.recupererCandidat("accueil", formFiltreNom, orderBy));
